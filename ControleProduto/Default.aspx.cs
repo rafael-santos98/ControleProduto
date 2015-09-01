@@ -13,5 +13,15 @@ namespace ControleProduto
         {
 
         }
+
+        protected void btnProduto_Cadastro_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Pages/Cadastro/frmCadastroProduto_Lista.aspx");
+        }
+
+        protected void btnProduto_Movimento_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Pages/Movimento/frmMovimentoProduto_Lista.aspx");
+        }
     }
 }
