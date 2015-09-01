@@ -11,7 +11,7 @@
            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
             <div style="width:960px;">
                 <div style="float:right;">
-                    <asp:Button ID="btnIncluir" runat="server" Text="Incluir" Width="100px" />
+                    <asp:Button ID="btnIncluir" runat="server" Text="Incluir" Width="100px" OnClick="btnIncluir_Click" />
                 </div>                
 
                 <div style="clear:both;"></div>

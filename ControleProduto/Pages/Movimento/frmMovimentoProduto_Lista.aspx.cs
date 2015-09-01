@@ -47,8 +47,7 @@ namespace ControleProduto.Pages.Movimento
                 ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('" + ex.Message.ToString() + "');", true);
             }
         }
-
-
+        
         private void CarregaGridProdutoMovimento()
         {
             try
@@ -83,6 +82,18 @@ namespace ControleProduto.Pages.Movimento
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
             CarregaGridProdutoMovimento();
+        }
+
+        protected void btnIncluir_Click(object sender, EventArgs e)
+        {
+            try 
+            {
+                Response.Redirect("frmMovimentoProduto.aspx");
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('" + ex.Message.ToString() + "');", true);
+            }
         }
     }
 }
