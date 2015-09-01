@@ -43,5 +43,10 @@ namespace SF_DAL
                 throw ex;
             }
         }
+
+        public DataTable IncluiProdutoMovimento(int ncdProdutoMovimento, Nullable<DateTime> DtEntrada, Nullable<DateTime> DtSaida, int ncdProduto, string cdsTipoMovimento, string ConnectionString) 
+        { 
+        
+        }
     }
 }

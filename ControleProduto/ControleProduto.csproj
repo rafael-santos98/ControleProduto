@@ -53,6 +53,12 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="db\Scripts\Script_BD.sql" />
+    <Content Include="db\Stored Procedures\SP_Cadastro_ProdutoCarrega.sql" />
+    <Content Include="db\Stored Procedures\SP_Cadastro_ProdutoIncluiAtualizaExclui.sql" />
+    <Content Include="db\Stored Procedures\SP_Cadastro_ProdutoMovimentoCarrega.sql" />
+    <Content Include="db\Stored Procedures\SP_Cadastro_ProdutoMovimentoInclui.sql" />
+    <Content Include="db\Triggers\TR_Cadastro_ProdutoMovimentoSaldoAtualiza.sql" />
     <Content Include="Default.aspx" />
     <Content Include="Pages\Cadastro\frmCadastroProduto.aspx" />
     <Content Include="Pages\Cadastro\frmCadastroProduto_Lista.aspx" />
