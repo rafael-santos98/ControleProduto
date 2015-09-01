@@ -29,7 +29,7 @@ namespace ControleProduto.Pages.Cadastro
 
         private void CarregaProduto()
         {
-            try
+            try 
             {
                 Misc.oConexao oConn = new Misc.oConexao();
                 SF_AP.oProduto oMetodo = new SF_AP.oProduto();
