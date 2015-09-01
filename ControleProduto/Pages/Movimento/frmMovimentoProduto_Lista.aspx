@@ -72,6 +72,7 @@
                                     <asp:BoundField HeaderText="Produto" DataField="CDSPRODUTO" />
                                     <asp:BoundField HeaderText="Observação" DataField="CDSOBSERVACAO" />
                                     <asp:BoundField HeaderText="Dt. Movimento" DataField="DTMOVIMENTO" />
+                                    <asp:BoundField HeaderText="Qtde" DataField="NVLQUANTIDADE" />
                                     <asp:BoundField HeaderText="Tipo" DataField="CDSTIPOMOVIMENTO_TEXTO" />
                                 </Columns>
                             </asp:GridView>

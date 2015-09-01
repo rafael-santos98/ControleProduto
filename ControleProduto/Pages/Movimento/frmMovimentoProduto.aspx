@@ -54,7 +54,7 @@
                     </table>
 
                     <div style="float:right;">
-                        <asp:Button ID="btnIncluir" runat="server" Width="100px" Text="Incluir" />
+                        <asp:Button ID="btnIncluir" runat="server" Width="100px" Text="Incluir" OnClick="btnIncluir_Click" />
                         <asp:Button ID="btnVoltar" runat="server" Width="100px" Text="Voltar" OnClick="btnVoltar_Click"  />
                     </div>
                 </fieldset>
