@@ -51,7 +51,7 @@ namespace ControleProduto.Pages.Cadastro
             }
             catch (Exception ex)
             {
-                throw ex;
+                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('" + ex.Message.ToString() + "');", true);
             }
         }
 
@@ -76,14 +76,14 @@ namespace ControleProduto.Pages.Cadastro
                 if (dt != null)
                 {
                     txtCodigo.Text = dt.Rows[0]["NCDPRODUTO"].ToString();
-                    hdfCodigoProduto.Value = dt.Rows[0]["NCDPRODUTO"].ToString();
+                    hdfCodigoProduto.Value = dt.Rows[0]["NCDPRODUTO"].ToString();                    
                     CarregaPerfil_Atualizacao();
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('" + dt.Rows[0]["MENSAGEM"].ToString() + "');", true);
                 }
             }
             catch (Exception ex)
-            {
-                throw ex;
-                //ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('" + ex.Message.ToString() + "');", true);
+            {                
+                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('" + ex.Message.ToString() + "');", true);
             }
         }
 
@@ -108,13 +108,12 @@ namespace ControleProduto.Pages.Cadastro
 
                 if (dt != null)
                 {
-
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('" + dt.Rows[0]["MENSAGEM"].ToString() + "');", true);
                 }
             }
             catch (Exception ex)
             {
-                throw ex;
-                //ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('" + ex.Message.ToString() + "');", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('" + ex.Message.ToString() + "');", true);
             }
         }
 
@@ -128,7 +127,7 @@ namespace ControleProduto.Pages.Cadastro
             }
             catch (Exception ex)
             {
-                throw ex;
+                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('" + ex.Message.ToString() + "');", true);
             }
         }
 
@@ -142,7 +141,7 @@ namespace ControleProduto.Pages.Cadastro
             }
             catch (Exception ex)
             {
-                throw ex;
+                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('" + ex.Message.ToString() + "');", true);
             }
         }
 
@@ -190,7 +189,7 @@ namespace ControleProduto.Pages.Cadastro
             }
             catch (Exception ex)
             {
-                throw ex;
+                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('" + ex.Message.ToString() + "');", true);
             }
 
         }

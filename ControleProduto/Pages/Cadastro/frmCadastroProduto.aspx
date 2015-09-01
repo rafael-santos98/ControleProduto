@@ -8,6 +8,7 @@
     </head>
     <body>
         <form id="form1" runat="server">
+            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
             <div style="width:430px;margin: 5px 5px 5px 5px;"> 
                 <fieldset> 
                     <legend>Dados do Produto</legend>

@@ -43,7 +43,7 @@ namespace ControleProduto.Pages.Cadastro
             }
             catch (Exception ex)
             {
-                throw ex;
+                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('" + ex.Message.ToString() + "');", true);
             }
         }
 
@@ -60,7 +60,7 @@ namespace ControleProduto.Pages.Cadastro
             }
             catch (Exception ex)
             {
-                throw ex;
+                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('" + ex.Message.ToString() + "');", true);
             }
         }       
     }
