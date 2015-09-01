@@ -54,7 +54,7 @@
             </div>
 
             <div style="float:left; width:650px; margin-left: 10px;">
-                <fieldset>
+                <fieldset> 
                     <legend>Resultados</legend>
                     <div style="margin: 5px 5px 5px 5px;">
                         <asp:GridView ID="gdvDados" Width="100%" runat="server" AutoGenerateColumns="false">
