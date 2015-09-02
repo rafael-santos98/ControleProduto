@@ -15,6 +15,7 @@
             <div style="width:960px;">
                 <div style="float:right;">
                     <asp:Button ID="btnNovo" runat="server" Text="Novo" Width="100px" OnClick="btnNovo_Click" />
+                    <asp:Button ID="btnVoltar" runat="server" Text="Voltar" Width="100px" OnClick="btnVoltar_Click"  />
                 </div>                
             </div>
 

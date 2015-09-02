@@ -12,6 +12,7 @@
             <div style="width:960px;">
                 <div style="float:right;">
                     <asp:Button ID="btnIncluir" runat="server" Text="Incluir" Width="100px" OnClick="btnIncluir_Click" />
+                    <asp:Button ID="btnVoltar" runat="server" Width="100px" Text="Voltar" OnClick="btnVoltar_Click"  />
                 </div>                
 
                 <div style="clear:both;"></div>
@@ -56,7 +57,7 @@
                             </table>
 
                             <div style="float:right;">
-                                <asp:Button ID="btnBuscar" runat="server" Text="Buscar" Width="100px" OnClick="btnBuscar_Click" />
+                                <asp:Button ID="btnBuscar" runat="server" Text="Buscar" Width="100px" OnClick="btnBuscar_Click" />                                
                             </div>
                         </div>
                     </fieldset> 

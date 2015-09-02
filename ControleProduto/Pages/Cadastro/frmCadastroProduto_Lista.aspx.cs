@@ -62,6 +62,18 @@ namespace ControleProduto.Pages.Cadastro
             {
                 ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('" + ex.Message.ToString() + "');", true);
             }
+        }
+
+        protected void btnVoltar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("../../Default.aspx");
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('" + ex.Message.ToString() + "');", true);
+            }
         }       
     }
 }
