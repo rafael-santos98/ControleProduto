@@ -7,7 +7,7 @@ namespace SF_AP
 {
     public class oProduto : SF_BLL.oProduto
     {
-        public DataTable CarregaProduto(int ncdProduto, string cdsProduto, int BidAtivo, string ConnectionString)
+        public DataTable CarregaProduto(int ncdProduto, string cdsProduto, Nullable<Boolean> BidAtivo, string ConnectionString)
         {
             try
             {

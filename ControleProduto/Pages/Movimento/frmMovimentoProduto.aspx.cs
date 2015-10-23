@@ -28,7 +28,7 @@ namespace ControleProduto.Pages.Movimento
                 DataTable dt = new DataTable();
                 int ncdProduto = 0;
                 string cdsProduto = string.Empty;
-                int BidAtivo = 0;
+                Nullable<Boolean> BidAtivo = null;                
 
                 dt = oMetodo.CarregaProduto(ncdProduto, cdsProduto, BidAtivo, oConn.getConnection());
 
@@ -57,7 +57,7 @@ namespace ControleProduto.Pages.Movimento
                 DataTable dt = new DataTable();
                 int ncdProduto = 0;
                 string cdsProduto = string.Empty;
-                int BidAtivo = 0;
+                Nullable<Boolean> BidAtivo = null;                
 
                 if (ddlProduto.SelectedIndex > 0) ncdProduto = int.Parse(ddlProduto.SelectedValue);
 

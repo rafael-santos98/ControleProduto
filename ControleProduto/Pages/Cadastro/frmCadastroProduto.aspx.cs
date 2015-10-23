@@ -36,7 +36,7 @@ namespace ControleProduto.Pages.Cadastro
                 DataTable dt = new DataTable();
                 int ncdProduto = 0;
                 string cdsProduto = string.Empty;
-                int BidAtivo = 0;
+                Nullable<Boolean> BidAtivo = null;                
 
                 if (!string.IsNullOrEmpty(hdfCodigoProduto.Value)) ncdProduto = int.Parse(hdfCodigoProduto.Value);
 
@@ -46,7 +46,7 @@ namespace ControleProduto.Pages.Cadastro
                 {
                     txtCodigo.Text = dt.Rows[0]["NCDPRODUTO"] != DBNull.Value ? dt.Rows[0]["NCDPRODUTO"].ToString() : "";
                     txtDescricao.Text = dt.Rows[0]["CDSPRODUTO"] != DBNull.Value ? dt.Rows[0]["CDSPRODUTO"].ToString() : "";
-                    chkAtivo.Checked = dt.Rows[0]["BIDATIVO"] != DBNull.Value ? (dt.Rows[0]["BIDATIVO"].ToString() == "1" ? true : false) : false;
+                    chkAtivo.Checked = dt.Rows[0]["BIDATIVO"] != DBNull.Value ? Boolean.Parse(dt.Rows[0]["BIDATIVO"].ToString()) : false;
                 }
             }
             catch (Exception ex)

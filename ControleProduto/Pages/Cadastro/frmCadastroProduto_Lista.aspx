@@ -39,9 +39,9 @@
                                 <td><label>Ativo:</label></td>
                                 <td>
                                     <asp:DropDownList ID="ddlAtivo" runat="server" Width="100%">
-                                        <asp:ListItem Value="0" Text="(Todos)" Selected="True"></asp:ListItem>
+                                        <asp:ListItem Value="" Text="(Todos)" Selected="True"></asp:ListItem>
                                         <asp:ListItem Value="1" Text="Ativo"></asp:ListItem>
-                                        <asp:ListItem Value="2" Text="Inativo"></asp:ListItem>
+                                        <asp:ListItem Value="0" Text="Inativo"></asp:ListItem>
                                     </asp:DropDownList>
                                 </td>
                             </tr>
@@ -62,7 +62,7 @@
                             <Columns>
                                 <asp:HyperLinkField HeaderText="Código" DataTextField="NCDPRODUTO" DataNavigateUrlFields="NCDPRODUTO" DataNavigateUrlFormatString="frmCadastroProduto.aspx?CodigoProduto={0}" NavigateUrl="frmCadastroProduto.aspx?CodigoProduto={0}" />
                                 <asp:HyperLinkField HeaderText="Descrição" DataTextField="CDSPRODUTO" DataNavigateUrlFields="NCDPRODUTO" DataNavigateUrlFormatString="frmCadastroProduto.aspx?CodigoProduto={0}" NavigateUrl="frmCadastroProduto.aspx?CodigoProduto={0}" />
-                                <asp:HyperLinkField HeaderText="Saldo" DataTextField="NVLSALDO" DataNavigateUrlFields="NCDPRODUTO" DataNavigateUrlFormatString="frmCadastroProduto.aspx?CodigoProduto={0}" NavigateUrl="frmCadastroProduto.aspx?CodigoProduto={0}" />
+                                <asp:HyperLinkField HeaderText="Saldo" DataTextField="NQTPRODUTOSALDO" DataNavigateUrlFields="NCDPRODUTO" DataNavigateUrlFormatString="frmCadastroProduto.aspx?CodigoProduto={0}" NavigateUrl="frmCadastroProduto.aspx?CodigoProduto={0}" />
                                 <asp:HyperLinkField HeaderText="Ativo" DataTextField="BIDATIVO_TEXTO" DataNavigateUrlFields="NCDPRODUTO" DataNavigateUrlFormatString="frmCadastroProduto.aspx?CodigoProduto={0}" NavigateUrl="frmCadastroProduto.aspx?CodigoProduto={0}" />
                             </Columns>
                         </asp:GridView>

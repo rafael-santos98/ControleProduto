@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Text;
 using System.Data;
+using System.Data.SqlTypes;
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
+using MySql.Data.Types;
 
 namespace SF_DAL
 {
     public class oProduto
     {
-        public DataTable CarregaProduto(int ncdProduto, string cdsProduto, int BidAtivo, string ConnectionString)
+        public DataTable CarregaProduto(int ncdProduto, string cdsProduto, Nullable<Boolean> BidAtivo, string ConnectionString)
         {
             try
             {
@@ -22,10 +24,10 @@ namespace SF_DAL
                 conn = new MySqlConnection(ConnectionString);
                 conn.Open();
 
-                mysqlCmd = new MySqlCommand("SP_Cadastro_ProdutoCarrega");
+                mysqlCmd = new MySqlCommand("SP_Cadastro_Produto_Carrega");
                 mysqlCmd.Parameters.AddWithValue("_NCDPRODUTO", ncdProduto);
                 mysqlCmd.Parameters.AddWithValue("_CDSPRODUTO", cdsProduto);
-                mysqlCmd.Parameters.AddWithValue("_BIDATIVO", BidAtivo);
+                mysqlCmd.Parameters.AddWithValue("_BIDATIVO", BidAtivo != null ? BidAtivo : (object)DBNull.Value);                
 
                 mysqlCmd.Connection = conn;
                 mysqlCmd.CommandTimeout = 500;
@@ -56,7 +58,7 @@ namespace SF_DAL
                 conn = new MySqlConnection(ConnectionString);
                 conn.Open();
 
-                mysqlCmd = new MySqlCommand("SP_Cadastro_ProdutoIncluiAtualizaExclui");
+                mysqlCmd = new MySqlCommand("SP_Cadastro_Produto_IncluiAtualiza");
                 mysqlCmd.Parameters.AddWithValue("_NCDPRODUTO", ncdProduto);
                 mysqlCmd.Parameters.AddWithValue("_CDSPRODUTO", cdsProduto);
                 mysqlCmd.Parameters.AddWithValue("_BIDATIVO", BidAtivo);

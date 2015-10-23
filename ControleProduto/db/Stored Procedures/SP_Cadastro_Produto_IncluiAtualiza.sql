@@ -1,20 +1,19 @@
 use produto;
 
 DELIMITER 	//
-	DROP PROCEDURE IF EXISTS SP_Cadastro_ProdutoIncluiAtualizaExclui;    //
-	CREATE PROCEDURE SP_Cadastro_ProdutoIncluiAtualizaExclui(IN _NCDPRODUTO INT, IN _CDSPRODUTO VARCHAR(100), IN _BIDATIVO BIT, IN _ACAO INT)
+	DROP PROCEDURE IF EXISTS SP_Cadastro_Produto_IncluiAtualiza;    //
+	CREATE PROCEDURE SP_Cadastro_Produto_IncluiAtualiza(IN _NCDPRODUTO INT, IN _CDSPRODUTO VARCHAR(100), IN _BIDATIVO BOOLEAN, IN _ACAO INT)
     BEGIN 	
 		/*
 		-- =======================================================================================
 			Sistema:  		Controle de Produto			
 			Data:			30/08/2015
 			Banco de Dados:	Produto
-            Procedure:		SP_Cadastro_ProdutoIncluiAtualizaExclui
+            Procedure:		SP_Cadastro_Produto_IncluiAtualiza
             Versão:			1.0            
-			Descrição:		Procedure que realiza inclusão, alteração e deleção de Produto.
+			Descrição:		Procedure que realiza inclusão, alteração de Produto.
 							Ação >>	1: Inclusão
-									2: Alteração
-									3: Deleção            
+									2: Alteração									         
 		-- =======================================================================================                  
 		*/
         
@@ -28,15 +27,14 @@ DELIMITER 	//
 			-- INSERSÃO DE DADOS
 			-- ===================================================================================	                
 			INSERT 
-			INTO 	TBPRODUTO (
-					CDSPRODUTO,                 
-					NVLSALDO, 
+			INTO 	TBPRODUTO 
+            (
+					CDSPRODUTO,                 					
 					BIDATIVO
 			)
 			VALUES
 			(
-					_CDSPRODUTO,
-					0,
+					_CDSPRODUTO,					
 					_BIDATIVO
 			);               
 			
@@ -63,20 +61,6 @@ DELIMITER 	//
 			SET _MENSAGEM = 'Produto atualizado com sucesso!';            
             SELECT _MENSAGEM AS MENSAGEM;        
         END IF;
-        
-        IF _ACAO = 3 THEN
-			-- ===================================================================================
-			-- DELEÇÃO DE DADOS
-			-- ===================================================================================	                        
-			DELETE      
-            FROM	TBPRODUTO
-            WHERE 	NCDPRODUTO = _NCDPRODUTO;
-            
-			-- ===================================================================================
-			-- RETORNO DE DADOS
-			-- ===================================================================================
-			SET _MENSAGEM = 'Produto deletado com sucesso!';   
-            SELECT _MENSAGEM AS MENSAGEM;
-        END IF;
+ 
     END //
 DELIMITER ;

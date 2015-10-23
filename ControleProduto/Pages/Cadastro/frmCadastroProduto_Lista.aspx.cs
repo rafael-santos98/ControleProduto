@@ -15,11 +15,11 @@ namespace ControleProduto.Pages.Cadastro
             if (!Page.IsPostBack)
             {
                 CarregaGridProduto();
-            }     
+            }
         }
 
         private void CarregaGridProduto()
-        {          
+        {
             try
             {
                 Misc.oConexao oConn = new Misc.oConexao();
@@ -27,13 +27,13 @@ namespace ControleProduto.Pages.Cadastro
                 DataTable dt = new DataTable();
                 int ncdProduto = 0;
                 string cdsProduto = string.Empty;
-                int BidAtivo = 0;
+                Nullable<Boolean> BidAtivo = null;
 
                 if (!string.IsNullOrEmpty(txtCodigo.Text.Trim())) ncdProduto = int.Parse(txtCodigo.Text.Trim());
                 if (!string.IsNullOrEmpty(txtDescricao.Text.Trim())) cdsProduto = txtDescricao.Text.Trim();
-                if (ddlAtivo.SelectedIndex > 0) BidAtivo = int.Parse(ddlAtivo.SelectedValue);
+                if (ddlAtivo.SelectedIndex > 0) BidAtivo = ddlAtivo.SelectedValue == "1" ? true : false;
 
-                dt = oMetodo.CarregaProduto(ncdProduto, cdsProduto, BidAtivo,oConn.getConnection());
+                dt = oMetodo.CarregaProduto(ncdProduto, cdsProduto, BidAtivo, oConn.getConnection());
 
                 if (dt != null)
                 {
@@ -48,13 +48,13 @@ namespace ControleProduto.Pages.Cadastro
         }
 
         protected void btnBuscar_Click(object sender, EventArgs e)
-        {            
+        {
             CarregaGridProduto();
         }
 
         protected void btnNovo_Click(object sender, EventArgs e)
         {
-            try 
+            try
             {
                 Response.Redirect("frmCadastroProduto.aspx");
             }
@@ -74,6 +74,6 @@ namespace ControleProduto.Pages.Cadastro
             {
                 ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('" + ex.Message.ToString() + "');", true);
             }
-        }       
+        }
     }
 }
