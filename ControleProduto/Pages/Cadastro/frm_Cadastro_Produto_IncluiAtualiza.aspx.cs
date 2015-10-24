@@ -51,7 +51,8 @@ namespace ControleProduto.Pages.Cadastro
             }
             catch (Exception ex)
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('" + ex.Message.ToString() + "');", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Erro ao Carregar Produto!');", true);
+                String Error = ex.Message.ToString();
             }
         }
 
@@ -71,7 +72,7 @@ namespace ControleProduto.Pages.Cadastro
                 BidAtivo = chkAtivo.Checked;
                 Acao = 1;
 
-                dt = oMetodo.IncluiAtualizaExcluiProduto(ncdProduto, cdsProduto, BidAtivo, Acao, oConn.getConnection());
+                dt = oMetodo.IncluiAtualizaProduto(ncdProduto, cdsProduto, BidAtivo, Acao, oConn.getConnection());
 
                 if (dt != null)
                 {
@@ -82,8 +83,9 @@ namespace ControleProduto.Pages.Cadastro
                 }
             }
             catch (Exception ex)
-            {                
-                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('" + ex.Message.ToString() + "');", true);
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Erro ao Incluir Produto!');", true);
+                String Error = ex.Message.ToString();
             }
         }
 
@@ -104,7 +106,7 @@ namespace ControleProduto.Pages.Cadastro
                 BidAtivo = chkAtivo.Checked;
                 Acao = 2;
 
-                dt = oMetodo.IncluiAtualizaExcluiProduto(ncdProduto, cdsProduto, BidAtivo, Acao, oConn.getConnection());
+                dt = oMetodo.IncluiAtualizaProduto(ncdProduto, cdsProduto, BidAtivo, Acao, oConn.getConnection());
 
                 if (dt != null)
                 {
@@ -113,7 +115,8 @@ namespace ControleProduto.Pages.Cadastro
             }
             catch (Exception ex)
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('" + ex.Message.ToString() + "');", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Erro ao Atualizar Produto!');", true);
+                String Error = ex.Message.ToString();
             }
         }
 
@@ -127,7 +130,8 @@ namespace ControleProduto.Pages.Cadastro
             }
             catch (Exception ex)
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('" + ex.Message.ToString() + "');", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Erro ao Carregar Perfil de Inclusão!');", true);
+                String Error = ex.Message.ToString();
             }
         }
 
@@ -153,7 +157,8 @@ namespace ControleProduto.Pages.Cadastro
             }
             catch (Exception ex)
             {
-                throw ex;
+                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Erro ao Carregar Perfil de Atualização!');", true);
+                String Error = ex.Message.ToString();
             }
         }
 
@@ -189,7 +194,8 @@ namespace ControleProduto.Pages.Cadastro
             }
             catch (Exception ex)
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('" + ex.Message.ToString() + "');", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Erro ao Carregar Perfil de Inclusão!');", true);
+                String Error = ex.Message.ToString();
             }
 
         }

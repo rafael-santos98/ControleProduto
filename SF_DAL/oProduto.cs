@@ -44,7 +44,7 @@ namespace SF_DAL
             }
         }
 
-        public DataTable IncluiAtualizaExcluiProduto(int ncdProduto, string cdsProduto, bool BidAtivo, int Acao, string ConnectionString)
+        public DataTable IncluiAtualizaProduto(int ncdProduto, string cdsProduto, bool BidAtivo, int Acao, string ConnectionString)
         {
             try
             {

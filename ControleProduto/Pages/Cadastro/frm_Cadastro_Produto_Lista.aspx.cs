@@ -43,7 +43,8 @@ namespace ControleProduto.Pages.Cadastro
             }
             catch (Exception ex)
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('" + ex.Message.ToString() + "');", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Erro ao Carregar Lista de Produtos!');", true);
+                String Error = ex.Message.ToString();
             }
         }
 
@@ -60,7 +61,8 @@ namespace ControleProduto.Pages.Cadastro
             }
             catch (Exception ex)
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('" + ex.Message.ToString() + "');", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Erro ao Carregar Tela de Inclusão de Produto!');", true);
+                String Error = ex.Message.ToString();
             }
         }
 
@@ -72,7 +74,8 @@ namespace ControleProduto.Pages.Cadastro
             }
             catch (Exception ex)
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('" + ex.Message.ToString() + "');", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Erro ao Carregar a Tela Inicial!');", true);
+                String Error = ex.Message.ToString();
             }
         }
     }

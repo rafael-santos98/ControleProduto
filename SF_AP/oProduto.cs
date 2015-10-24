@@ -24,14 +24,14 @@ namespace SF_AP
             }
         }
 
-        public DataTable IncluiAtualizaExcluiProduto(int ncdProduto, string cdsProduto, bool BidAtivo, int Acao, string ConnectionString)
+        public DataTable IncluiAtualizaProduto(int ncdProduto, string cdsProduto, bool BidAtivo, int Acao, string ConnectionString)
         {
             try
             {
                 SF_BLL.oProduto oMetodo = new SF_BLL.oProduto();
                 DataTable dt = new DataTable();
 
-                dt = oMetodo.IncluiAtualizaExcluiProduto(ncdProduto, cdsProduto, BidAtivo, Acao, ConnectionString);
+                dt = oMetodo.IncluiAtualizaProduto(ncdProduto, cdsProduto, BidAtivo, Acao, ConnectionString);
 
                 return dt;
             }
