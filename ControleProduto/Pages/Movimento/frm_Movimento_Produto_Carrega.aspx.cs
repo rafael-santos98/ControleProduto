@@ -44,7 +44,8 @@ namespace ControleProduto.Pages.Movimento
             }
             catch (Exception ex)
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('" + ex.Message.ToString() + "');", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Erro ao Carregar Lista de Produtos!');", true);
+                String Error = ex.Message.ToString();
             }
         }
 
@@ -78,7 +79,8 @@ namespace ControleProduto.Pages.Movimento
             }
             catch (Exception ex)
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('" + ex.Message.ToString() + "');", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Erro ao Carregar Lista de Movimento de Produtos!');", true);
+                String Error = ex.Message.ToString();
             }
         }
 
@@ -95,7 +97,8 @@ namespace ControleProduto.Pages.Movimento
             }
             catch (Exception ex)
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('" + ex.Message.ToString() + "');", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Erro ao Carregar Tela de Movimento de Produto!');", true);
+                String Error = ex.Message.ToString();
             }
         }
 
@@ -107,7 +110,9 @@ namespace ControleProduto.Pages.Movimento
             }
             catch (Exception ex)
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('" + ex.Message.ToString() + "');", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Erro ao Carregar Tela Inicial!');", true);
+                String Error = ex.Message.ToString();
+
             }
         }
     }
