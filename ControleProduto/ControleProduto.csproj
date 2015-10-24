@@ -71,9 +71,9 @@
     <Content Include="db\Triggers\TR_Cadastro_ProdutoSaldoAtualiza.sql" />
     <Content Include="Default.aspx" />
     <Content Include="Pages\Cadastro\frm_Cadastro_Produto_IncluiAtualiza.aspx" />
-    <Content Include="Pages\Cadastro\frm_Cadastro_Produto_Lista.aspx" />
-    <Content Include="Pages\Movimento\frmMovimentoProduto.aspx" />
-    <Content Include="Pages\Movimento\frmMovimentoProduto_Lista.aspx" />
+    <Content Include="Pages\Cadastro\frm_Cadastro_Produto_Carrega.aspx" />
+    <Content Include="Pages\Movimento\frm_Movimento_Produto_Inclui.aspx" />
+    <Content Include="Pages\Movimento\frm_Movimento_Produto_Carrega.aspx" />
     <Content Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
@@ -95,26 +95,26 @@
     <Compile Include="Pages\Cadastro\frm_Cadastro_Produto_IncluiAtualiza.aspx.designer.cs">
       <DependentUpon>frm_Cadastro_Produto_IncluiAtualiza.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Cadastro\frm_Cadastro_Produto_Lista.aspx.cs">
-      <DependentUpon>frm_Cadastro_Produto_Lista.aspx</DependentUpon>
+    <Compile Include="Pages\Cadastro\frm_Cadastro_Produto_Carrega.aspx.cs">
+      <DependentUpon>frm_Cadastro_Produto_Carrega.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\Cadastro\frm_Cadastro_Produto_Lista.aspx.designer.cs">
-      <DependentUpon>frm_Cadastro_Produto_Lista.aspx</DependentUpon>
+    <Compile Include="Pages\Cadastro\frm_Cadastro_Produto_Carrega.aspx.designer.cs">
+      <DependentUpon>frm_Cadastro_Produto_Carrega.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Movimento\frmMovimentoProduto.aspx.cs">
-      <DependentUpon>frmMovimentoProduto.aspx</DependentUpon>
+    <Compile Include="Pages\Movimento\frm_Movimento_Produto_Inclui.aspx.cs">
+      <DependentUpon>frm_Movimento_Produto_Inclui.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\Movimento\frmMovimentoProduto.aspx.designer.cs">
-      <DependentUpon>frmMovimentoProduto.aspx</DependentUpon>
+    <Compile Include="Pages\Movimento\frm_Movimento_Produto_Inclui.aspx.designer.cs">
+      <DependentUpon>frm_Movimento_Produto_Inclui.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Movimento\frmMovimentoProduto_Lista.aspx.cs">
-      <DependentUpon>frmMovimentoProduto_Lista.aspx</DependentUpon>
+    <Compile Include="Pages\Movimento\frm_Movimento_Produto_Carrega.aspx.cs">
+      <DependentUpon>frm_Movimento_Produto_Carrega.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\Movimento\frmMovimentoProduto_Lista.aspx.designer.cs">
-      <DependentUpon>frmMovimentoProduto_Lista.aspx</DependentUpon>
+    <Compile Include="Pages\Movimento\frm_Movimento_Produto_Carrega.aspx.designer.cs">
+      <DependentUpon>frm_Movimento_Produto_Carrega.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

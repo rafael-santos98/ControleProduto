@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frm_Cadastro_Produto_Lista.aspx.cs" Inherits="ControleProduto.Pages.Cadastro.frmCadastroProduto_Lista" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frm_Cadastro_Produto_Carrega.aspx.cs" Inherits="ControleProduto.Pages.Cadastro.frmCadastroProduto_Lista" %>
 
 <!DOCTYPE html>
 
