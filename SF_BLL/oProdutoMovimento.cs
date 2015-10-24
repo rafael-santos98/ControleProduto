@@ -20,7 +20,7 @@ namespace SF_BLL
             }
             catch (Exception ex)
             {      
-                throw ex;
+                throw ex; 
             }
         }
 
