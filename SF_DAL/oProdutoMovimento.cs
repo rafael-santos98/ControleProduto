@@ -58,9 +58,9 @@ namespace SF_DAL
                 conn = new MySqlConnection(ConnectionString);
                 conn.Open();
 
-                mysqlCmd = new MySqlCommand("SP_Cadastro_ProdutoMovimentoInclui");
+                mysqlCmd = new MySqlCommand("SP_Movimento_ProdutoInclui");
                 mysqlCmd.Parameters.AddWithValue("_NCDPRODUTO", ncdProduto);
-                mysqlCmd.Parameters.AddWithValue("_NVLQUANTIDADE", nvlQuantidade);
+                mysqlCmd.Parameters.AddWithValue("_NQTPRODUTOMOVIMENTO", nvlQuantidade);
                 mysqlCmd.Parameters.AddWithValue("_CDSOBSERVACAO", cdsObservacao);
                 mysqlCmd.Parameters.AddWithValue("_CDSTIPOMOVIMENTO", cdsTipoMovimento);
 
