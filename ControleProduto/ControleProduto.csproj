@@ -54,6 +54,15 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\ControleProduto.dll" />
+    <Content Include="bin\ControleProduto.pdb" />
+    <Content Include="bin\MySqlBackup.dll" />
+    <Content Include="bin\SF_AP.dll" />
+    <Content Include="bin\SF_AP.pdb" />
+    <Content Include="bin\SF_BLL.dll" />
+    <Content Include="bin\SF_BLL.pdb" />
+    <Content Include="bin\SF_DAL.dll" />
+    <Content Include="bin\SF_DAL.pdb" />
     <Content Include="db\Scripts\Script_BD.sql" />
     <Content Include="db\Stored Procedures\SP_Cadastro_Produto_Carrega.sql" />
     <Content Include="db\Stored Procedures\SP_Cadastro_Produto_IncluiAtualiza.sql" />
@@ -116,6 +125,7 @@
     <Folder Include="Styles\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\ControleProduto.dll.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
