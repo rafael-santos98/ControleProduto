@@ -29,9 +29,9 @@
                                 </tr>
                                 <tr>
                                     <td><label>Data De:</label></td>
-                                    <td><asp:TextBox ID="txtDescricao" runat="server" Width="100px"></asp:TextBox></td>
+                                    <td><asp:TextBox ID="txtDataDe" runat="server" Width="100px"></asp:TextBox></td>
                                     <td><label>Até:</label></td>
-                                    <td><asp:TextBox ID="TextBox1" runat="server" Width="100px"></asp:TextBox></td>
+                                    <td><asp:TextBox ID="txtDataAte" runat="server" Width="100px"></asp:TextBox></td>
                                 </tr>
                                 <tr>
                                     <td><label>Produto:</label></td>
@@ -73,7 +73,7 @@
                                     <asp:BoundField HeaderText="Produto" DataField="CDSPRODUTO" />
                                     <asp:BoundField HeaderText="Observação" DataField="CDSOBSERVACAO" />
                                     <asp:BoundField HeaderText="Dt. Movimento" DataField="DTMOVIMENTO" />
-                                    <asp:BoundField HeaderText="Qtde" DataField="NVLQUANTIDADE" />
+                                    <asp:BoundField HeaderText="Qtde" DataField="NQTPRODUTOMOVIMENTO" />
                                     <asp:BoundField HeaderText="Tipo" DataField="CDSTIPOMOVIMENTO_TEXTO" />
                                 </Columns>
                             </asp:GridView>

@@ -7,19 +7,19 @@ namespace SF_BLL
 {
     public class oProdutoMovimento : SF_DAL.oProdutoMovimento
     {
-        public DataTable CarregaProdutoMovimento(int ncdProdutoMovimento, Nullable<DateTime> DtEntrada, Nullable<DateTime> DtSaida, int ncdProduto, string cdsTipoMovimento, string ConnectionString)
+        public DataTable CarregaProdutoMovimento(int ncdProdutoMovimento, Nullable<DateTime> dtMovimentoDe, Nullable<DateTime> dtMovimentoAte, int ncdProduto, string cdsTipoMovimento, string ConnectionString)
         {
             try
             {
                 SF_DAL.oProdutoMovimento oMetodo = new SF_DAL.oProdutoMovimento();
                 DataTable dt = new DataTable();
 
-                dt = oMetodo.CarregaProdutoMovimento(ncdProdutoMovimento, DtEntrada, DtSaida, ncdProduto, cdsTipoMovimento, ConnectionString);
+                dt = oMetodo.CarregaProdutoMovimento(ncdProdutoMovimento, dtMovimentoDe, dtMovimentoAte, ncdProduto, cdsTipoMovimento, ConnectionString);
 
                 return dt;
             }
             catch (Exception ex)
-            {
+            {      
                 throw ex;
             }
         }

@@ -28,7 +28,7 @@ namespace ControleProduto.Pages.Movimento
                 DataTable dt = new DataTable();
                 int ncdProduto = 0;
                 string cdsProduto = string.Empty;
-                Nullable<Boolean> BidAtivo = null;                
+                Nullable<Boolean> BidAtivo = null;
 
                 dt = oMetodo.CarregaProduto(ncdProduto, cdsProduto, BidAtivo, oConn.getConnection());
 
@@ -47,7 +47,7 @@ namespace ControleProduto.Pages.Movimento
                 ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('" + ex.Message.ToString() + "');", true);
             }
         }
-        
+
         private void CarregaGridProdutoMovimento()
         {
             try
@@ -56,16 +56,19 @@ namespace ControleProduto.Pages.Movimento
                 SF_AP.oProdutoMovimento oMetodo = new SF_AP.oProdutoMovimento();
                 DataTable dt = new DataTable();
                 int ncdProdutoMovimento = 0;
-                Nullable<DateTime> DtEntrada = null;
-                Nullable<DateTime> DtSaida = null;
+                Nullable<DateTime> dtMovimentoDe = null;
+                Nullable<DateTime> dtMovimentoAte = null;
                 int ncdProduto = 0;
                 string cdsTipoMovimento = string.Empty;
-                
+
+                if (!string.IsNullOrEmpty(txtCodigo.Text.Trim())) ncdProdutoMovimento = int.Parse(txtCodigo.Text.Trim());
+                if (!string.IsNullOrEmpty(txtDataDe.Text.Trim())) dtMovimentoDe = DateTime.Parse(txtDataDe.Text.Trim());
+                if (!string.IsNullOrEmpty(txtDataAte.Text.Trim())) dtMovimentoAte = DateTime.Parse(txtDataAte.Text.Trim());
                 if (ddlProduto.SelectedIndex > 0) ncdProduto = int.Parse(ddlProduto.SelectedValue);
                 if (ddlTipoMovimento.SelectedIndex > 0) cdsTipoMovimento = ddlTipoMovimento.SelectedValue;
 
-                dt = oMetodo.CarregaProdutoMovimento(ncdProdutoMovimento, DtEntrada, DtSaida, ncdProduto, cdsTipoMovimento, oConn.getConnection());
-                
+                dt = oMetodo.CarregaProdutoMovimento(ncdProdutoMovimento, dtMovimentoDe, dtMovimentoAte, ncdProduto, cdsTipoMovimento, oConn.getConnection());
+
 
                 if (dt != null)
                 {
@@ -86,7 +89,7 @@ namespace ControleProduto.Pages.Movimento
 
         protected void btnIncluir_Click(object sender, EventArgs e)
         {
-            try 
+            try
             {
                 Response.Redirect("frmMovimentoProduto.aspx");
             }

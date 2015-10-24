@@ -8,7 +8,7 @@ namespace SF_DAL
 {
     public class oProdutoMovimento
     {
-        public DataTable CarregaProdutoMovimento(int ncdProdutoMovimento, Nullable<DateTime> DtEntrada, Nullable<DateTime> DtSaida, int ncdProduto, string cdsTipoMovimento, string ConnectionString)
+        public DataTable CarregaProdutoMovimento(int ncdProdutoMovimento, Nullable<DateTime> dtMovimentoDe, Nullable<DateTime> dtMovimentoAte, int ncdProduto, string cdsTipoMovimento, string ConnectionString)
         {
             try
             {
@@ -22,12 +22,12 @@ namespace SF_DAL
                 conn = new MySqlConnection(ConnectionString);
                 conn.Open();
 
-                mysqlCmd = new MySqlCommand("SP_Cadastro_ProdutoMovimentoCarrega");
+                mysqlCmd = new MySqlCommand("SP_Movimento_Produto_Carrega");
                 mysqlCmd.Parameters.AddWithValue("_NCDPRODUTOMOVIMENTO", ncdProdutoMovimento);
-                mysqlCmd.Parameters.AddWithValue("_DTENTRADA", DtEntrada);
-                mysqlCmd.Parameters.AddWithValue("_DTSAIDA", DtSaida);
+                mysqlCmd.Parameters.AddWithValue("_DTMOVIMENTODE", dtMovimentoDe != null ? dtMovimentoDe : (object)DBNull.Value);
+                mysqlCmd.Parameters.AddWithValue("_DTMOVIMENTOATE", dtMovimentoAte != null ? dtMovimentoAte : (object)DBNull.Value);
                 mysqlCmd.Parameters.AddWithValue("_NCDPRODUTO", ncdProduto);
-                mysqlCmd.Parameters.AddWithValue("_CDSTIPOMOVIMENTO", cdsTipoMovimento);                               
+                mysqlCmd.Parameters.AddWithValue("_CDSTIPOMOVIMENTO", cdsTipoMovimento);
 
                 mysqlCmd.Connection = conn;
                 mysqlCmd.CommandTimeout = 500;
@@ -44,7 +44,7 @@ namespace SF_DAL
             }
         }
 
-        public DataTable IncluiProdutoMovimento(int ncdProduto, float nvlQuantidade, string cdsObservacao, string cdsTipoMovimento, string ConnectionString) 
+        public DataTable IncluiProdutoMovimento(int ncdProduto, float nvlQuantidade, string cdsObservacao, string cdsTipoMovimento, string ConnectionString)
         {
             try
             {
@@ -62,7 +62,7 @@ namespace SF_DAL
                 mysqlCmd.Parameters.AddWithValue("_NCDPRODUTO", ncdProduto);
                 mysqlCmd.Parameters.AddWithValue("_NVLQUANTIDADE", nvlQuantidade);
                 mysqlCmd.Parameters.AddWithValue("_CDSOBSERVACAO", cdsObservacao);
-                mysqlCmd.Parameters.AddWithValue("_CDSTIPOMOVIMENTO", cdsTipoMovimento);                
+                mysqlCmd.Parameters.AddWithValue("_CDSTIPOMOVIMENTO", cdsTipoMovimento);
 
                 mysqlCmd.Connection = conn;
                 mysqlCmd.CommandTimeout = 500;
