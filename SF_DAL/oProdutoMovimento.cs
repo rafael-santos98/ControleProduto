@@ -44,7 +44,7 @@ namespace SF_DAL
             }
         }
 
-        public DataTable IncluiProdutoMovimento(int ncdProduto, float nvlQuantidade, string cdsObservacao, string cdsTipoMovimento, string ConnectionString)
+        public DataTable IncluiProdutoMovimento(int ncdProduto, float nqtProdutoMovimento, string cdsObservacao, string cdsTipoMovimento, string ConnectionString)
         {
             try
             {
@@ -60,7 +60,7 @@ namespace SF_DAL
 
                 mysqlCmd = new MySqlCommand("SP_Movimento_ProdutoInclui");
                 mysqlCmd.Parameters.AddWithValue("_NCDPRODUTO", ncdProduto);
-                mysqlCmd.Parameters.AddWithValue("_NQTPRODUTOMOVIMENTO", nvlQuantidade);
+                mysqlCmd.Parameters.AddWithValue("_NQTPRODUTOMOVIMENTO", nqtProdutoMovimento);
                 mysqlCmd.Parameters.AddWithValue("_CDSOBSERVACAO", cdsObservacao);
                 mysqlCmd.Parameters.AddWithValue("_CDSTIPOMOVIMENTO", cdsTipoMovimento);
 

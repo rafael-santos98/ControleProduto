@@ -65,7 +65,7 @@ namespace ControleProduto.Pages.Movimento
 
                 if (dt != null)
                 {
-                    txtValorSaldo.Text = dt.Rows[0]["NVLSALDO"] != DBNull.Value ? dt.Rows[0]["NVLSALDO"].ToString() : "";
+                    txtValorSaldo.Text = dt.Rows[0]["NQTPRODUTOSALDO"] != DBNull.Value ? dt.Rows[0]["NQTPRODUTOSALDO"].ToString() : "";
                 }
             }
             catch (Exception ex)
@@ -82,15 +82,15 @@ namespace ControleProduto.Pages.Movimento
                 SF_AP.oProdutoMovimento oMetodo = new SF_AP.oProdutoMovimento();
                 DataTable dt = new DataTable();
                 int ncdProduto = 0;
-                float nvlQuantidade = 0;
+                float nqtProdutoMovimento = 0;
                 string cdsObservacao = string.Empty;
                 string cdsTipoMovimento = string.Empty;
 
                 if (ddlProduto.SelectedIndex > 0) ncdProduto = int.Parse(ddlProduto.SelectedValue);
                 if (ddlTipoMovimento.SelectedIndex > 0) cdsTipoMovimento = ddlTipoMovimento.SelectedValue;
-                if (!string.IsNullOrEmpty(txtValorQuantidade.Text.Trim())) nvlQuantidade = float.Parse(txtValorQuantidade.Text.Trim());
+                if (!string.IsNullOrEmpty(txtValorQuantidade.Text.Trim())) nqtProdutoMovimento = float.Parse(txtValorQuantidade.Text.Trim());
 
-                dt = oMetodo.IncluiProdutoMovimento(ncdProduto, nvlQuantidade, cdsObservacao, cdsTipoMovimento, oConn.getConnection());
+                dt = oMetodo.IncluiProdutoMovimento(ncdProduto, nqtProdutoMovimento, cdsObservacao, cdsTipoMovimento, oConn.getConnection());
 
 
                 if (dt != null)
@@ -131,7 +131,7 @@ namespace ControleProduto.Pages.Movimento
         {
             try
             {
-                Response.Redirect("frmMovimentoProduto_Lista.aspx");
+                Response.Redirect("frm_Movimento_Produto_Carrega.aspx");
             }
             catch (Exception ex)
             {

@@ -24,14 +24,14 @@ namespace SF_BLL
             }
         }
 
-        public DataTable IncluiProdutoMovimento(int ncdProduto, float nvlQuantidade, string cdsObservacao, string cdsTipoMovimento, string ConnectionString) 
+        public DataTable IncluiProdutoMovimento(int ncdProduto, float nqtProdutoMovimento, string cdsObservacao, string cdsTipoMovimento, string ConnectionString)
         {
             try
             {
                 SF_DAL.oProdutoMovimento oMetodo = new SF_DAL.oProdutoMovimento();
                 DataTable dt = new DataTable();
 
-                dt = oMetodo.IncluiProdutoMovimento(ncdProduto, nvlQuantidade, cdsObservacao, cdsTipoMovimento, ConnectionString);
+                dt = oMetodo.IncluiProdutoMovimento(ncdProduto, nqtProdutoMovimento, cdsObservacao, cdsTipoMovimento, ConnectionString);
 
                 return dt;
             }
