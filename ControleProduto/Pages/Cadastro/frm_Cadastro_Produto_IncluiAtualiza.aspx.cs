@@ -149,7 +149,7 @@ namespace ControleProduto.Pages.Cadastro
         {
             try
             {
-                Response.Redirect("frmCadastroProduto_Lista.aspx");
+                Response.Redirect("frm_Cadastro_Produto_Lista.aspx");
             }
             catch (Exception ex)
             {

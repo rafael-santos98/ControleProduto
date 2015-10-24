@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frmCadastroProduto_Lista.aspx.cs" Inherits="ControleProduto.Pages.Cadastro.frmCadastroProduto_Lista" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="frm_Cadastro_Produto_Lista.aspx.cs" Inherits="ControleProduto.Pages.Cadastro.frmCadastroProduto_Lista" %>
 
 <!DOCTYPE html>
 
@@ -60,10 +60,10 @@
                     <div style="margin: 5px 5px 5px 5px;">
                         <asp:GridView ID="gdvDados" Width="100%" runat="server" AutoGenerateColumns="false">
                             <Columns>
-                                <asp:HyperLinkField HeaderText="Código" DataTextField="NCDPRODUTO" DataNavigateUrlFields="NCDPRODUTO" DataNavigateUrlFormatString="frmCadastroProduto.aspx?CodigoProduto={0}" NavigateUrl="frmCadastroProduto.aspx?CodigoProduto={0}" />
-                                <asp:HyperLinkField HeaderText="Descrição" DataTextField="CDSPRODUTO" DataNavigateUrlFields="NCDPRODUTO" DataNavigateUrlFormatString="frmCadastroProduto.aspx?CodigoProduto={0}" NavigateUrl="frmCadastroProduto.aspx?CodigoProduto={0}" />
-                                <asp:HyperLinkField HeaderText="Saldo" DataTextField="NQTPRODUTOSALDO" DataNavigateUrlFields="NCDPRODUTO" DataNavigateUrlFormatString="frmCadastroProduto.aspx?CodigoProduto={0}" NavigateUrl="frmCadastroProduto.aspx?CodigoProduto={0}" />
-                                <asp:HyperLinkField HeaderText="Ativo" DataTextField="BIDATIVO_TEXTO" DataNavigateUrlFields="NCDPRODUTO" DataNavigateUrlFormatString="frmCadastroProduto.aspx?CodigoProduto={0}" NavigateUrl="frmCadastroProduto.aspx?CodigoProduto={0}" />
+                                <asp:HyperLinkField HeaderText="Código" DataTextField="NCDPRODUTO" DataNavigateUrlFields="NCDPRODUTO" DataNavigateUrlFormatString="frm_Cadastro_Produto_IncluiAtualiza.aspx?CodigoProduto={0}" NavigateUrl="frm_Cadastro_Produto_IncluiAtualiza.aspx?CodigoProduto={0}" />
+                                <asp:HyperLinkField HeaderText="Descrição" DataTextField="CDSPRODUTO" DataNavigateUrlFields="NCDPRODUTO" DataNavigateUrlFormatString="frm_Cadastro_Produto_IncluiAtualiza.aspx?CodigoProduto={0}" NavigateUrl="frm_Cadastro_Produto_IncluiAtualiza.aspx?CodigoProduto={0}" />
+                                <asp:HyperLinkField HeaderText="Saldo" DataTextField="NQTPRODUTOSALDO" DataNavigateUrlFields="NCDPRODUTO" DataNavigateUrlFormatString="frm_Cadastro_Produto_IncluiAtualiza.aspx?CodigoProduto={0}" NavigateUrl="frm_Cadastro_Produto_IncluiAtualiza.aspx?CodigoProduto={0}" />
+                                <asp:HyperLinkField HeaderText="Ativo" DataTextField="BIDATIVO_TEXTO" DataNavigateUrlFields="NCDPRODUTO" DataNavigateUrlFormatString="frm_Cadastro_Produto_IncluiAtualiza.aspx?CodigoProduto={0}" NavigateUrl="frm_Cadastro_Produto_IncluiAtualiza.aspx?CodigoProduto={0}" />
                             </Columns>
                         </asp:GridView>
                     </div>

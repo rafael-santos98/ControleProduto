@@ -70,8 +70,8 @@
     <Content Include="db\Stored Procedures\SP_Movimento_Produto_Inclui.sql" />
     <Content Include="db\Triggers\TR_Cadastro_ProdutoAtualizaSaldo.sql" />
     <Content Include="Default.aspx" />
-    <Content Include="Pages\Cadastro\frmCadastroProduto.aspx" />
-    <Content Include="Pages\Cadastro\frmCadastroProduto_Lista.aspx" />
+    <Content Include="Pages\Cadastro\frm_Cadastro_Produto_IncluiAtualiza.aspx" />
+    <Content Include="Pages\Cadastro\frm_Cadastro_Produto_Lista.aspx" />
     <Content Include="Pages\Movimento\frmMovimentoProduto.aspx" />
     <Content Include="Pages\Movimento\frmMovimentoProduto_Lista.aspx" />
     <Content Include="Scripts\jquery-1.7.1.intellisense.js" />
@@ -88,19 +88,19 @@
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Misc\oConexao.cs" />
-    <Compile Include="Pages\Cadastro\frmCadastroProduto.aspx.cs">
-      <DependentUpon>frmCadastroProduto.aspx</DependentUpon>
+    <Compile Include="Pages\Cadastro\frm_Cadastro_Produto_IncluiAtualiza.aspx.cs">
+      <DependentUpon>frm_Cadastro_Produto_IncluiAtualiza.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\Cadastro\frmCadastroProduto.aspx.designer.cs">
-      <DependentUpon>frmCadastroProduto.aspx</DependentUpon>
+    <Compile Include="Pages\Cadastro\frm_Cadastro_Produto_IncluiAtualiza.aspx.designer.cs">
+      <DependentUpon>frm_Cadastro_Produto_IncluiAtualiza.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Cadastro\frmCadastroProduto_Lista.aspx.cs">
-      <DependentUpon>frmCadastroProduto_Lista.aspx</DependentUpon>
+    <Compile Include="Pages\Cadastro\frm_Cadastro_Produto_Lista.aspx.cs">
+      <DependentUpon>frm_Cadastro_Produto_Lista.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\Cadastro\frmCadastroProduto_Lista.aspx.designer.cs">
-      <DependentUpon>frmCadastroProduto_Lista.aspx</DependentUpon>
+    <Compile Include="Pages\Cadastro\frm_Cadastro_Produto_Lista.aspx.designer.cs">
+      <DependentUpon>frm_Cadastro_Produto_Lista.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Movimento\frmMovimentoProduto.aspx.cs">
       <DependentUpon>frmMovimentoProduto.aspx</DependentUpon>

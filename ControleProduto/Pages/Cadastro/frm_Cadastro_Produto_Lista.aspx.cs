@@ -56,7 +56,7 @@ namespace ControleProduto.Pages.Cadastro
         {
             try
             {
-                Response.Redirect("frmCadastroProduto.aspx");
+                Response.Redirect("frm_Cadastro_Produto_IncluiAtualiza.aspx");
             }
             catch (Exception ex)
             {
