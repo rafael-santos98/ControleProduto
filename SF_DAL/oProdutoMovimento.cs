@@ -19,7 +19,7 @@ namespace SF_DAL
                 MySqlDataAdapter da = new MySqlDataAdapter();
                 DataTable dt = new DataTable();
 
-                conn = new MySqlConnection(ConnectionString);
+                conn = new MySqlConnection(ConnectionString); 
                 conn.Open();
 
                 mysqlCmd = new MySqlCommand("SP_Movimento_Produto_Carrega");
