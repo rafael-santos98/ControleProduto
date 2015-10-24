@@ -1,8 +1,8 @@
 use produto;
 
 DELIMITER 	//
-	DROP PROCEDURE IF EXISTS SP_Cadastro_ProdutoMovimentoInclui;    //
-	CREATE PROCEDURE SP_Cadastro_ProdutoMovimentoInclui(IN _NCDPRODUTO INT, IN _NVLQUANTIDADE FLOAT, IN _CDSOBSERVACAO VARCHAR(300), IN _CDSTIPOMOVIMENTO CHAR(1))
+	DROP PROCEDURE IF EXISTS SP_Movimento_ProdutoInclui;    //
+	CREATE PROCEDURE SP_Movimento_ProdutoInclui(IN _NCDPRODUTO INT, IN _NQTPRODUTOMOVIMENTO FLOAT, IN _CDSOBSERVACAO VARCHAR(300), IN _CDSTIPOMOVIMENTO CHAR(1))
     BEGIN 	
 		/*
 		-- =======================================================================================
@@ -10,7 +10,7 @@ DELIMITER 	//
 			Data:			31/08/2015
 			Banco de Dados:	Produto
             Versão:			1.0
-            Procedure:		SP_Cadastro_ProdutoMovimentoInclui
+            Procedure:		SP_Movimento_ProdutoInclui
 			Descrição:		Procedure que realiza inclusão Movimento de Produto.         
 							-Entrada 	= 'E'	,
                             -Saída 	 	= 'S'	,
@@ -27,23 +27,23 @@ DELIMITER 	//
 		-- INSERSÃO DE DADOS
 		-- =======================================================================================
         IF _CDSTIPOMOVIMENTO = 'E' THEN
-			IF _NVLQUANTIDADE > 0 THEN
+			IF _NQTPRODUTOMOVIMENTO > 0 THEN
 				BEGIN
 					INSERT 
 					INTO 	TBPRODUTOMOVIMENTO 
 					(
-							NCDPRODUTO			, 
-							NVLQUANTIDADE		,	 
-							CDSOBSERVACAO		, 
-							CDSTIPOMOVIMENTO	, 
+							NCDPRODUTO				, 
+							NQTPRODUTOMOVIMENTO		,	 
+							CDSOBSERVACAO			, 
+							CDSTIPOMOVIMENTO		, 
 							DTMOVIMENTO	
 					)
 					VALUES
 					(
-							_NCDPRODUTO			, 
-							_NVLQUANTIDADE		,	 
-							_CDSOBSERVACAO		, 
-							_CDSTIPOMOVIMENTO	, 
+							_NCDPRODUTO				, 
+							_NQTPRODUTOMOVIMENTO	,	 
+							_CDSOBSERVACAO			,	 
+							_CDSTIPOMOVIMENTO		,	 
 							NOW()
 					);               
 					
@@ -63,24 +63,24 @@ DELIMITER 	//
         END IF;        
         
         IF _CDSTIPOMOVIMENTO = 'S' OR _CDSTIPOMOVIMENTO = 'C' THEN
-			IF _NVLQUANTIDADE <= (SELECT NVLSALDO FROM TBPRODUTO WHERE NCDPRODUTO = _NCDPRODUTO) THEN				
-                IF _NVLQUANTIDADE > 0 THEN
+			IF _NQTPRODUTOMOVIMENTO <= (SELECT NQTPRODUTOSALDO FROM TBPRODUTO WHERE NCDPRODUTO = _NCDPRODUTO) THEN				
+                IF _NQTPRODUTOMOVIMENTO > 0 THEN
 					BEGIN
 						INSERT 
 						INTO 	TBPRODUTOMOVIMENTO 
 						(
-								NCDPRODUTO			, 
-								NVLQUANTIDADE		,	 
-								CDSOBSERVACAO		, 
-								CDSTIPOMOVIMENTO	, 
+								NCDPRODUTO				, 
+								NQTPRODUTOMOVIMENTO		,	 
+								CDSOBSERVACAO			, 
+								CDSTIPOMOVIMENTO		, 
 								DTMOVIMENTO	
 						)
 						VALUES
 						(
-								_NCDPRODUTO			, 
-								_NVLQUANTIDADE		,	 
-								_CDSOBSERVACAO		, 
-								_CDSTIPOMOVIMENTO	, 
+								_NCDPRODUTO				, 
+								_NQTPRODUTOMOVIMENTO	,	 
+								_CDSOBSERVACAO			,	 
+								_CDSTIPOMOVIMENTO		,	 
 								NOW()
 						);               
 						
