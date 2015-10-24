@@ -75,7 +75,7 @@ DELIMITER 	//
             SET @query = CONCAT(@query, ' AND A.CDSTIPOMOVIMENTO LIKE ''%', _CDSTIPOMOVIMENTO,'%''');
         END IF;
         
-        SET @query = CONCAT(@query, ' ORDER BY DTMOVIMENTO');
+        SET @query = CONCAT(@query, ' ORDER BY DTMOVIMENTO DESC');
         
         PREPARE stmt1 FROM @query;
 		EXECUTE stmt1;

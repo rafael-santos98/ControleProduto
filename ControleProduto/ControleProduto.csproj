@@ -68,7 +68,7 @@
     <Content Include="db\Stored Procedures\SP_Cadastro_Produto_IncluiAtualiza.sql" />
     <Content Include="db\Stored Procedures\SP_Movimento_Produto_Carrega.sql" />
     <Content Include="db\Stored Procedures\SP_Movimento_Produto_Inclui.sql" />
-    <Content Include="db\Triggers\TR_Cadastro_ProdutoAtualizaSaldo.sql" />
+    <Content Include="db\Triggers\TR_Cadastro_ProdutoSaldoAtualiza.sql" />
     <Content Include="Default.aspx" />
     <Content Include="Pages\Cadastro\frm_Cadastro_Produto_IncluiAtualiza.aspx" />
     <Content Include="Pages\Cadastro\frm_Cadastro_Produto_Lista.aspx" />
