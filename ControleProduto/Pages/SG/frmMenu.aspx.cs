@@ -14,6 +14,11 @@ namespace ControleProduto.Pages.SG
         {
             
         }
-   
+
+        protected void Menu_MenuItemClick(object sender, MenuEventArgs e)
+        {
+            string a = string.Empty;
+        }
+
     }
 }
