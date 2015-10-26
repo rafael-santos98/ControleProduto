@@ -67,6 +67,33 @@ namespace ControleProduto {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl MenuDeslogado;
         
         /// <summary>
+        /// txtUsuario control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtUsuario;
+        
+        /// <summary>
+        /// txtUsuarioSenha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtUsuarioSenha;
+        
+        /// <summary>
+        /// chkLembrar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox chkLembrar;
+        
+        /// <summary>
         /// btnLogin control.
         /// </summary>
         /// <remarks>

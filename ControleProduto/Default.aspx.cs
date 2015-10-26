@@ -11,36 +11,76 @@ namespace ControleProduto
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Page.IsPostBack)
+            {
+                HttpCookie cookieUsuario = Request.Cookies["textoCookieUsuario"];
+                HttpCookie cookieSenha = Request.Cookies["textoCookieSenha"];
 
+                if (cookieUsuario != null && cookieSenha != null)
+                {
+                    if (!string.IsNullOrEmpty(cookieUsuario.Value) && !string.IsNullOrEmpty(cookieSenha.Value))
+                    {
+                        chkLembrar.Checked = true;                        
+                        if (Logar(cookieUsuario.Value, cookieSenha.Value))
+                        {
+                            MenuLogado.Attributes.Add("class", "nav navbar-nav navbar-right");
+                            MenuDeslogado.Attributes.Add("class", "nav navbar-nav navbar-right hidden");
+                        }
+                    }
+                }
+            }
         }
 
-        protected void IncluiCookie(string CdsUsuario, string CdsSenha)
+        private Boolean Logar(string cdsUsuario, string cdsSenha)
         {
-            Misc.oCriptografia oCriptografia = new Misc.oCriptografia();
-            HttpCookie cookieUsuario = new HttpCookie("textoCookieUsuario");
-            HttpCookie cookieSenha = new HttpCookie("textoCookieSenha");
-            TimeSpan somarTempo = new TimeSpan(0, 10, 0, 0); //Tempo de Expiração
+            try
+            {
 
-            cookieUsuario.Value = CdsUsuario;
-            cookieUsuario.Expires = DateTime.Now + somarTempo;
-            Response.Cookies.Add(cookieUsuario);
+                if (chkLembrar.Checked == true) 
+                {
+                    
+                    HttpCookie cookieUsuario = new HttpCookie("textoCookieUsuario");
+                    HttpCookie cookieSenha = new HttpCookie("textoCookieSenha");
+                    TimeSpan somarTempo = new TimeSpan(0, 10, 0, 0); //Tempo de Expiração
 
-            cookieSenha.Value = CdsSenha;
-            cookieSenha.Expires = DateTime.Now + somarTempo;
-            Response.Cookies.Add(cookieSenha);
+                    cookieUsuario.Value = cdsUsuario;
+                    cookieUsuario.Expires = DateTime.Now + somarTempo;
+                    Response.Cookies.Add(cookieUsuario);
+
+                    cookieSenha.Value = cdsSenha;
+                    cookieSenha.Expires = DateTime.Now + somarTempo;
+                    Response.Cookies.Add(cookieSenha);
+                }
+                Session["sUsuario"] = cdsUsuario; 
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        protected void RemoveCookie()
+        private Boolean Deslogar()
         {
-            HttpCookie cookieUsuario = new HttpCookie("textoCookieUsuario");
-            cookieUsuario.Expires = DateTime.Now.AddDays(-1);
-            cookieUsuario.Value = string.Empty;
-            Response.Cookies.Add(cookieUsuario);
+            try
+            {
+                HttpCookie cookieUsuario = new HttpCookie("textoCookieUsuario");
+                cookieUsuario.Expires = DateTime.Now.AddDays(-1);
+                cookieUsuario.Value = string.Empty;
+                Response.Cookies.Add(cookieUsuario);
 
-            HttpCookie cookieSenha = new HttpCookie("textoCookieSenha");
-            cookieSenha.Expires = DateTime.Now.AddDays(-1);
-            cookieSenha.Value = string.Empty;
-            Response.Cookies.Add(cookieSenha);
+                HttpCookie cookieSenha = new HttpCookie("textoCookieSenha");
+                cookieSenha.Expires = DateTime.Now.AddDays(-1);
+                cookieSenha.Value = string.Empty;
+                Response.Cookies.Add(cookieSenha);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         
         protected void lnkbtnPaginaInicial_Click(object sender, EventArgs e)
@@ -83,8 +123,15 @@ namespace ControleProduto
         {
             try
             {
-                MenuLogado.Attributes.Add("class", "nav navbar-nav navbar-right");
-                MenuDeslogado.Attributes.Add("class", "nav navbar-nav navbar-right hidden");
+                Misc.oCriptografia oCriptografia = new Misc.oCriptografia();
+                string cdsUsuario = txtUsuario.Text.Trim();
+                string cdsSenha = oCriptografia.SHA512(txtUsuarioSenha.Text.Trim());
+
+                if (Logar(cdsUsuario, cdsSenha))
+                {
+                    MenuLogado.Attributes.Add("class", "nav navbar-nav navbar-right");
+                    MenuDeslogado.Attributes.Add("class", "nav navbar-nav navbar-right hidden");
+                }
             }
             catch (Exception ex)
             {
@@ -96,8 +143,12 @@ namespace ControleProduto
         {
             try
             {
-                MenuDeslogado.Attributes.Add("class", "nav navbar-nav navbar-right");
-                MenuLogado.Attributes.Add("class", "nav navbar-nav navbar-right hidden");
+                if (Deslogar())
+                {
+                    Session["sUsuario"] = null;
+                    MenuDeslogado.Attributes.Add("class", "nav navbar-nav navbar-right");
+                    MenuLogado.Attributes.Add("class", "nav navbar-nav navbar-right hidden");                    
+                }
             }
             catch (Exception ex)
             {
