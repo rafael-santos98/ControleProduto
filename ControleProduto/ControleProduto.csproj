@@ -111,6 +111,7 @@
       <DependentUpon>frmInicial.aspx</DependentUpon>
     </Compile>
     <Compile Include="Misc\oConexao.cs" />
+    <Compile Include="Misc\oCriptografia.cs" />
     <Compile Include="Pages\Cadastro\frm_Cadastro_Produto_IncluiAtualiza.aspx.cs">
       <DependentUpon>frm_Cadastro_Produto_IncluiAtualiza.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

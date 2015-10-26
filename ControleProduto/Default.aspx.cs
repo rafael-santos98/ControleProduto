@@ -14,21 +14,52 @@ namespace ControleProduto
 
         }
 
-        protected void btnProduto_Cadastro_Click(object sender, EventArgs e)
+        protected void IncluiCookie(string CdsUsuario, string CdsSenha)
         {
-            Response.Redirect("Pages/Cadastro/frm_Cadastro_Produto_Carrega.aspx");
+            Misc.oCriptografia oCriptografia = new Misc.oCriptografia();
+            HttpCookie cookieUsuario = new HttpCookie("textoCookieUsuario");
+            HttpCookie cookieSenha = new HttpCookie("textoCookieSenha");
+            TimeSpan somarTempo = new TimeSpan(0, 10, 0, 0); //Tempo de Expiração
+
+            cookieUsuario.Value = CdsUsuario;
+            cookieUsuario.Expires = DateTime.Now + somarTempo;
+            Response.Cookies.Add(cookieUsuario);
+
+            cookieSenha.Value = CdsSenha;
+            cookieSenha.Expires = DateTime.Now + somarTempo;
+            Response.Cookies.Add(cookieSenha);
         }
 
-        protected void btnProduto_Movimento_Click(object sender, EventArgs e)
+        protected void RemoveCookie()
         {
-            Response.Redirect("Pages/Movimento/frm_Movimento_Produto_Carrega.aspx");
+            HttpCookie cookieUsuario = new HttpCookie("textoCookieUsuario");
+            cookieUsuario.Expires = DateTime.Now.AddDays(-1);
+            cookieUsuario.Value = string.Empty;
+            Response.Cookies.Add(cookieUsuario);
+
+            HttpCookie cookieSenha = new HttpCookie("textoCookieSenha");
+            cookieSenha.Expires = DateTime.Now.AddDays(-1);
+            cookieSenha.Value = string.Empty;
+            Response.Cookies.Add(cookieSenha);
+        }
+        
+        protected void lnkbtnPaginaInicial_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                IfrmRedirect.Attributes.Add("src", "frmInicial.aspx");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         protected void lnkbtnCadastroProduto_Click(object sender, EventArgs e)
         {
             try
-            {
-                Response.Redirect("Pages/Cadastro/frm_Cadastro_Produto_Carrega.aspx");
+            {                
+                IfrmRedirect.Attributes.Add("src", "Pages/Cadastro/frm_Cadastro_Produto_Carrega.aspx");
             }
             catch (Exception ex)
             {                
@@ -36,11 +67,37 @@ namespace ControleProduto
             }
         }
 
-        protected void lnkbtnPaginaInicial_Click(object sender, EventArgs e)
+        protected void lnkbtnMovimentoProduto_Click(object sender, EventArgs e)
         {
             try
             {
-                Response.Redirect("Default.aspx");
+                IfrmRedirect.Attributes.Add("src", "Pages/Movimento/frm_Movimento_Produto_Carrega.aspx");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        protected void btnLogin_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MenuLogado.Attributes.Add("class", "nav navbar-nav navbar-right");
+                MenuDeslogado.Attributes.Add("class", "nav navbar-nav navbar-right hidden");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MenuDeslogado.Attributes.Add("class", "nav navbar-nav navbar-right");
+                MenuLogado.Attributes.Add("class", "nav navbar-nav navbar-right hidden");
             }
             catch (Exception ex)
             {
