@@ -23,5 +23,29 @@ namespace ControleProduto
         {
             Response.Redirect("Pages/Movimento/frm_Movimento_Produto_Carrega.aspx");
         }
+
+        protected void lnkbtnCadastroProduto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("Pages/Cadastro/frm_Cadastro_Produto_Carrega.aspx");
+            }
+            catch (Exception ex)
+            {                
+                throw ex;
+            }
+        }
+
+        protected void lnkbtnPaginaInicial_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("Default.aspx");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

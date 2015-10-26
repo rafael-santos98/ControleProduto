@@ -12,37 +12,6 @@
         
 
         <style type="text/css">
-            /**ASP MENU NAVBAR STYLE*/
-            body
-            {
-                font-family: Arial;
-                font-size: 10pt;
-            }
-            .main_menu
-            {
-                width: 100px;
-                background-color: #8AE0F2;
-                color: #000;
-                text-align: center;
-                height: 30px;
-                line-height: 30px;
-                margin-right: 5px;
-            }
-            .level_menu
-            {
-                width: 110px;
-                background-color: #000;
-                color: #fff;
-                text-align: center;
-                height: 30px;
-                line-height: 30px;
-                margin-top: 5px;
-            }
-            .selected
-            {
-                background-color: #852B91;
-                color: #fff;
-            }
 
             /**BOOTSTRAP NAVBAR STYLE*/
             .dropdown-submenu {
@@ -96,35 +65,11 @@
     </head>
     <body>
         <form id="form1" runat="server">
-            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-        <%--              
-            <div>
-                <asp:Menu ID="Menu" runat="server" Orientation="Horizontal" OnMenuItemClick="Menu_MenuItemClick">
-                    <Items>                        
-                        <asp:MenuItem Text="Cadastro">
-                            <asp:MenuItem Text="Produto">
-                                <asp:MenuItem Text="Cadastro de Produto" NavigateUrl="../Cadastro/frm_Cadastro_Produto_Carrega.aspx"></asp:MenuItem>
-                            </asp:MenuItem>
-                        </asp:MenuItem>                         
-                        <asp:MenuItem Text="Prodedimento">
-                            <asp:MenuItem Text="Produto">
-                                <asp:MenuItem Text="Movimento de Produto" NavigateUrl="../Movimento/frm_Movimento_Produto_Carrega.aspx"></asp:MenuItem>
-                            </asp:MenuItem>
-                        </asp:MenuItem>                        
-                        <asp:MenuItem Text="Segurança"></asp:MenuItem>                        
-                    </Items>
-                    <LevelMenuItemStyles>
-                        <asp:MenuItemStyle CssClass="main_menu" />
-                        <asp:MenuItemStyle CssClass="level_menu" />
-                        <asp:MenuItemStyle CssClass="level_menu" />
-                    </LevelMenuItemStyles>
-                </asp:Menu>
-            </div>
-            <div style="clear:both"><br /></div>
-        --%>
+            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>   
 
             <div style="clear:both"><br /></div>
 
+            <%--           
             <nav class="navbar navbar-inverse container">
                 <div class="container-fluid">
                     <div class="navbar-header">
@@ -133,7 +78,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span> 
                         </button>                            
-                        <%--<a class="navbar-brand">WebSiteName</a>--%>
+                        <a class="navbar-brand">WebSiteName</a>
                     </div>
                     <div class="collapse navbar-collapse" id="myNavbar">
                         <ul class="nav navbar-nav">                                
@@ -164,7 +109,52 @@
                         </ul>
                     </div>
                 </div>
-            </nav>     
+            </nav>   
+            --%>
+            <nav class="navbar navbar-inverse container">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span> 
+                        </button>                            
+                        <a class="navbar-brand">WebSiteName</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav">                                
+                            <li>
+                                <asp:LinkButton ID="lnkbtnPaginaInicial" runat="server" Text="Página Inicial" OnClick="lnkbtnPaginaInicial_Click"></asp:LinkButton>
+                            </li>
+                            <li>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cadastro <b class="caret"></b></a>
+                                <ul class="dropdown-menu">                                        
+                                    <li class="dropdown-submenu">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Produto</a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <asp:LinkButton ID="lnkbtnCadastroProduto" runat="server" Text="Cadastro de Produto" OnClick="lnkbtnCadastroProduto_Click"></asp:LinkButton>
+                                            </li>
+                                        </ul>
+                                    </li>                                        
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Procedimento <b class="caret"></b></a>
+                                <ul class="dropdown-menu">                                        
+                                    <li class="dropdown-submenu">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Produto</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#">Movimento de Produto</a></li>
+                                        </ul>
+                                    </li>                                        
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>              
             
             <div style="clear:both"><br /></div>   
         </form>

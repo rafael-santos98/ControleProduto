@@ -70,6 +70,7 @@
     <Content Include="db\Stored Procedures\SP_Movimento_Produto_Inclui.sql" />
     <Content Include="db\Triggers\TR_Cadastro_ProdutoSaldoAtualiza.sql" />
     <Content Include="Default.aspx" />
+    <Content Include="frmInicial.aspx" />
     <Content Include="Pages\Cadastro\frm_Cadastro_Produto_IncluiAtualiza.aspx" />
     <Content Include="Pages\Cadastro\frm_Cadastro_Produto_Carrega.aspx" />
     <Content Include="Pages\Movimento\frm_Movimento_Produto_Inclui.aspx" />
@@ -101,6 +102,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmInicial.aspx.cs">
+      <DependentUpon>frmInicial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmInicial.aspx.designer.cs">
+      <DependentUpon>frmInicial.aspx</DependentUpon>
     </Compile>
     <Compile Include="Misc\oConexao.cs" />
     <Compile Include="Pages\Cadastro\frm_Cadastro_Produto_IncluiAtualiza.aspx.cs">
