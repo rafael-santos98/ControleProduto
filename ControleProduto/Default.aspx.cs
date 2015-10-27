@@ -125,7 +125,7 @@ namespace ControleProduto
             {
                 Misc.oCriptografia oCriptografia = new Misc.oCriptografia();
                 string cdsUsuario = txtUsuario.Text.Trim();
-                string cdsSenha = oCriptografia.SHA512(txtUsuarioSenha.Text.Trim());
+                string cdsSenha = oCriptografia.SHA512(txtUsuarioSenha.Text.Trim()).ToUpper();
 
                 if (Logar(cdsUsuario, cdsSenha))
                 {
