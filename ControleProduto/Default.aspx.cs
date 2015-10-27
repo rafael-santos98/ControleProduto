@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -20,7 +21,7 @@ namespace ControleProduto
                 {
                     if (!string.IsNullOrEmpty(cookieUsuario.Value) && !string.IsNullOrEmpty(cookieSenha.Value))
                     {
-                        chkLembrar.Checked = true;                        
+                        chkLembrar.Checked = true;
                         if (Logar(cookieUsuario.Value, cookieSenha.Value))
                         {
                             MenuLogado.Attributes.Add("class", "nav navbar-nav navbar-right");
@@ -31,29 +32,42 @@ namespace ControleProduto
             }
         }
 
-        private Boolean Logar(string cdsUsuario, string cdsSenha)
+        private Boolean Logar(string cnmUsuario, string cdsSenha)
         {
             try
             {
+                Misc.oConexao oConn = new Misc.oConexao();
+                SF_AP.oUsuario oMetodo = new SF_AP.oUsuario();
+                DataTable dt = new DataTable();
 
-                if (chkLembrar.Checked == true) 
-                {
-                    
-                    HttpCookie cookieUsuario = new HttpCookie("textoCookieUsuario");
-                    HttpCookie cookieSenha = new HttpCookie("textoCookieSenha");
-                    TimeSpan somarTempo = new TimeSpan(0, 10, 0, 0); //Tempo de Expiração
+                dt = oMetodo.CarregaUsuarioLogin(cnmUsuario, cdsSenha, oConn.getConnection());
 
-                    cookieUsuario.Value = cdsUsuario;
-                    cookieUsuario.Expires = DateTime.Now + somarTempo;
-                    Response.Cookies.Add(cookieUsuario);
+                if (dt != null)
+                {   
+                    if (Convert.ToBoolean(dt.Rows[0]["RETORNO"]))
+                    {
+                        if (chkLembrar.Checked == true)
+                        {
 
-                    cookieSenha.Value = cdsSenha;
-                    cookieSenha.Expires = DateTime.Now + somarTempo;
-                    Response.Cookies.Add(cookieSenha);
+                            HttpCookie cookieUsuario = new HttpCookie("textoCookieUsuario");
+                            HttpCookie cookieSenha = new HttpCookie("textoCookieSenha");
+                            TimeSpan somarTempo = new TimeSpan(0, 10, 0, 0); //Tempo de Expiração
+
+                            cookieUsuario.Value = cnmUsuario;
+                            cookieUsuario.Expires = DateTime.Now + somarTempo;
+                            Response.Cookies.Add(cookieUsuario);
+
+                            cookieSenha.Value = cdsSenha;
+                            cookieSenha.Expires = DateTime.Now + somarTempo;
+                            Response.Cookies.Add(cookieSenha);
+                        }
+                        Session["sUsuario"] = cnmUsuario;
+
+                        return true;
+                    }
                 }
-                Session["sUsuario"] = cdsUsuario; 
 
-                return true;
+                return false;
             }
             catch (Exception ex)
             {
@@ -82,7 +96,7 @@ namespace ControleProduto
                 throw ex;
             }
         }
-        
+
         protected void lnkbtnPaginaInicial_Click(object sender, EventArgs e)
         {
             try
@@ -98,11 +112,11 @@ namespace ControleProduto
         protected void lnkbtnCadastroProduto_Click(object sender, EventArgs e)
         {
             try
-            {                
+            {
                 IfrmRedirect.Attributes.Add("src", "Pages/Cadastro/frm_Cadastro_Produto_Carrega.aspx");
             }
             catch (Exception ex)
-            {                
+            {
                 throw ex;
             }
         }
@@ -124,10 +138,10 @@ namespace ControleProduto
             try
             {
                 Misc.oCriptografia oCriptografia = new Misc.oCriptografia();
-                string cdsUsuario = txtUsuario.Text.Trim();
+                string cnmUsuario = txtUsuario.Text.Trim();
                 string cdsSenha = oCriptografia.SHA512(txtUsuarioSenha.Text.Trim()).ToUpper();
 
-                if (Logar(cdsUsuario, cdsSenha))
+                if (Logar(cnmUsuario, cdsSenha))
                 {
                     MenuLogado.Attributes.Add("class", "nav navbar-nav navbar-right");
                     MenuDeslogado.Attributes.Add("class", "nav navbar-nav navbar-right hidden");
@@ -147,7 +161,7 @@ namespace ControleProduto
                 {
                     Session["sUsuario"] = null;
                     MenuDeslogado.Attributes.Add("class", "nav navbar-nav navbar-right");
-                    MenuLogado.Attributes.Add("class", "nav navbar-nav navbar-right hidden");                    
+                    MenuLogado.Attributes.Add("class", "nav navbar-nav navbar-right hidden");
                 }
             }
             catch (Exception ex)
