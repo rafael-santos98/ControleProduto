@@ -1,15 +1,15 @@
 use produto;
 
 DELIMITER 	//
-	DROP PROCEDURE IF EXISTS SP_SG_UsuarioLoginPermissaoAcesso_Carrega;    //
-	CREATE PROCEDURE SP_SG_UsuarioLoginPermissaoAcesso_Carrega(IN _CNMUSUARIO VARCHAR(100), IN ACAO INT)
+	DROP PROCEDURE IF EXISTS SP_SG_UsuarioPermissaoAcesso_Carrega;    //
+	CREATE PROCEDURE SP_SG_UsuarioPermissaoAcesso_Carrega(IN _CNMUSUARIO VARCHAR(100), IN ACAO INT)
     BEGIN 	
 		/*
 		-- =======================================================================================
 			Sistema:  		Controle de Produto			
 			Data:			02/11/2015
 			Banco de Dados:	Produto
-            Procedure:		SP_SG_UsuarioLoginPermissaoAcesso_Carrega
+            Procedure:		SP_SG_UsuarioPermissaoAcesso_Carrega
             Versão:			1.0            
 			Descrição:		Procedure que Carrega Permissões de Acesso de Usuário                            
 							Ação >>	1: Carrega Permissões Não Associadas

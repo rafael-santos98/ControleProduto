@@ -40,7 +40,7 @@ namespace ControleProduto
                 SF_AP.oUsuario oMetodo = new SF_AP.oUsuario();
                 DataTable dt = new DataTable();
 
-                dt = oMetodo.CarregaUsuarioLogin(cnmUsuario, cdsSenha, oConn.getConnection());
+                dt = oMetodo.CarregaUsuarioAcesso(cnmUsuario, cdsSenha, oConn.getConnection());
 
                 if (dt != null)
                 {   

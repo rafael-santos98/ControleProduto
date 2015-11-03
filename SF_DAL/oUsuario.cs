@@ -10,7 +10,7 @@ namespace SF_DAL
 {
     public class oUsuario
     {
-        public DataTable CarregaUsuarioLogin(string cnmUsuario, string cdsSenha, string ConnectionString)
+        public DataTable CarregaUsuarioAcesso(string cnmUsuario, string cdsSenha, string ConnectionString)
         {
             try
             {
@@ -24,7 +24,7 @@ namespace SF_DAL
                 conn = new MySqlConnection(ConnectionString);
                 conn.Open();
 
-                mysqlCmd = new MySqlCommand("SP_SG_UsuarioLogin_Carrega");
+                mysqlCmd = new MySqlCommand("SP_SG_UsuarioAcesso_Carrega");
                 mysqlCmd.Parameters.AddWithValue("_CNMUSUARIO", cnmUsuario);
                 mysqlCmd.Parameters.AddWithValue("_CDSSENHA", cdsSenha);                
 

@@ -1,8 +1,8 @@
 use produto;
 
 DELIMITER 	//
-	DROP PROCEDURE IF EXISTS SP_Movimento_ProdutoInclui;    //
-	CREATE PROCEDURE SP_Movimento_ProdutoInclui(IN _NCDPRODUTO INT, IN _NQTPRODUTOMOVIMENTO FLOAT, IN _CDSOBSERVACAO VARCHAR(300), IN _CDSTIPOMOVIMENTO CHAR(1))
+	DROP PROCEDURE IF EXISTS SP_Movimento_Produto_Inclui;    //
+	CREATE PROCEDURE SP_Movimento_Produto_Inclui(IN _NCDPRODUTO INT, IN _NQTPRODUTOMOVIMENTO FLOAT, IN _CDSOBSERVACAO VARCHAR(300), IN _CDSTIPOMOVIMENTO CHAR(1))
     BEGIN 	
 		/*
 		-- =======================================================================================
@@ -10,7 +10,7 @@ DELIMITER 	//
 			Data:			31/08/2015
 			Banco de Dados:	Produto
             Versão:			1.0
-            Procedure:		SP_Movimento_ProdutoInclui
+            Procedure:		SP_Movimento_Produto_Inclui
 			Descrição:		Procedure que realiza inclusão Movimento de Produto.         
 							-Entrada 	= 'E'	,
                             -Saída 	 	= 'S'	,

@@ -7,7 +7,7 @@ namespace SF_BLL
 {
     public class oUsuario
     {
-        public DataTable CarregaUsuarioLogin(string cnmUsuario, string cdsSenha, string ConnectionString)
+        public DataTable CarregaUsuarioAcesso(string cnmUsuario, string cdsSenha, string ConnectionString)
         {
             try
             {
@@ -15,7 +15,7 @@ namespace SF_BLL
                 SF_DAL.oUsuario oMetodo = new SF_DAL.oUsuario();
                 DataTable dt = new DataTable();
 
-                dt = oMetodo.CarregaUsuarioLogin(cnmUsuario, cdsSenha, ConnectionString);
+                dt = oMetodo.CarregaUsuarioAcesso(cnmUsuario, cdsSenha, ConnectionString);
 
                 return dt;
             }

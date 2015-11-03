@@ -1,8 +1,8 @@
 use produto;
 
 DELIMITER 	//
-	DROP PROCEDURE IF EXISTS SP_SG_UsuarioLogin_Carrega;    //
-	CREATE PROCEDURE SP_SG_UsuarioLogin_Carrega(IN _CNMUSUARIO VARCHAR(200), IN _CDSSENHA VARCHAR(128))
+	DROP PROCEDURE IF EXISTS SP_SG_UsuarioAcesso_Carrega;    //
+	CREATE PROCEDURE SP_SG_UsuarioAcesso_Carrega(IN _CNMUSUARIO VARCHAR(200), IN _CDSSENHA VARCHAR(128))
     BEGIN 	
     
 		/*
@@ -11,7 +11,7 @@ DELIMITER 	//
 			Data:			26/10/2015
 			Banco de Dados:	Produto
             Versão:			1.0
-            Procedure:		SP_SG_UsuarioLogin_Carrega
+            Procedure:		SP_SG_UsuarioAcesso_Carrega
 			Descrição:		Procedure que Retorna permissão de Login de Usuário
 		-- =======================================================================================                  
 		*/
