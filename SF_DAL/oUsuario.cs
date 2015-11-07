@@ -76,5 +76,40 @@ namespace SF_DAL
                 throw ex;
             }
         }
+
+        public DataTable CarregaUsuario(int ncdUsuario, string cdsUsuario, string cnmUsuario, Nullable<Boolean> bidAtivo, string ConnectionString)
+        {
+            try
+            {
+
+                StringBuilder strSQL = new StringBuilder();
+                MySqlConnection conn = new MySqlConnection();
+                MySqlCommand mysqlCmd = new MySqlCommand();
+                MySqlDataAdapter da = new MySqlDataAdapter();
+                DataTable dt = new DataTable();
+
+                conn = new MySqlConnection(ConnectionString);
+                conn.Open();
+
+                mysqlCmd = new MySqlCommand("SP_SG_Usuario_Carrega");
+                mysqlCmd.Parameters.AddWithValue("_NCDUSUARIO", ncdUsuario);
+                mysqlCmd.Parameters.AddWithValue("_CDSUSUARIO", cdsUsuario);
+                mysqlCmd.Parameters.AddWithValue("_CNMUSUARIO", cnmUsuario);
+                mysqlCmd.Parameters.AddWithValue("_BIDATIVO", bidAtivo != null ? bidAtivo : (object)DBNull.Value);
+
+                mysqlCmd.Connection = conn;
+                mysqlCmd.CommandTimeout = 500;
+                mysqlCmd.CommandType = CommandType.StoredProcedure;
+
+                da = new MySqlDataAdapter(mysqlCmd);
+                da.Fill(dt);
+
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

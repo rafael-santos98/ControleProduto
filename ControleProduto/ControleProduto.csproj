@@ -81,6 +81,7 @@
     <Content Include="Pages\Cadastro\frm_Cadastro_Produto_Carrega.aspx" />
     <Content Include="Pages\Movimento\frm_Movimento_Produto_Inclui.aspx" />
     <Content Include="Pages\Movimento\frm_Movimento_Produto_Carrega.aspx" />
+    <Content Include="Pages\SG\frm_SG_Usuario_Carrega.aspx" />
     <Content Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
@@ -146,12 +147,18 @@
     <Compile Include="Pages\Movimento\frm_Movimento_Produto_Carrega.aspx.designer.cs">
       <DependentUpon>frm_Movimento_Produto_Carrega.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\SG\frm_SG_Usuario_Carrega.aspx.cs">
+      <DependentUpon>frm_SG_Usuario_Carrega.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SG\frm_SG_Usuario_Carrega.aspx.designer.cs">
+      <DependentUpon>frm_SG_Usuario_Carrega.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Images\" />
-    <Folder Include="Pages\SG\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\ControleProduto.dll.config" />

@@ -33,7 +33,7 @@ DELIMITER 	//
 									WHEN ''1'' THEN ''Sim'' 
 									WHEN ''0'' THEN ''Não''									
 								END AS BIDATIVO_TEXTO                                
-						FROM 	TBPRODUTO
+						FROM 	TBUSUARIO
 						WHERE 	0=0
 					 ';
                      
