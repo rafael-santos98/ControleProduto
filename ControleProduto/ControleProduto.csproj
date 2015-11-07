@@ -82,6 +82,7 @@
     <Content Include="Pages\Movimento\frm_Movimento_Produto_Inclui.aspx" />
     <Content Include="Pages\Movimento\frm_Movimento_Produto_Carrega.aspx" />
     <Content Include="Pages\SG\frm_SG_Usuario_Carrega.aspx" />
+    <Content Include="Pages\SG\frm_SG_Usuario_IncluiAtualiza.aspx" />
     <Content Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
@@ -119,6 +120,7 @@
     </Compile>
     <Compile Include="Misc\oConexao.cs" />
     <Compile Include="Misc\oCriptografia.cs" />
+    <Compile Include="Misc\oFuncoes.cs" />
     <Compile Include="Pages\Cadastro\frm_Cadastro_Produto_IncluiAtualiza.aspx.cs">
       <DependentUpon>frm_Cadastro_Produto_IncluiAtualiza.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -153,6 +155,13 @@
     </Compile>
     <Compile Include="Pages\SG\frm_SG_Usuario_Carrega.aspx.designer.cs">
       <DependentUpon>frm_SG_Usuario_Carrega.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SG\frm_SG_Usuario_IncluiAtualiza.aspx.cs">
+      <DependentUpon>frm_SG_Usuario_IncluiAtualiza.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SG\frm_SG_Usuario_IncluiAtualiza.aspx.designer.cs">
+      <DependentUpon>frm_SG_Usuario_IncluiAtualiza.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

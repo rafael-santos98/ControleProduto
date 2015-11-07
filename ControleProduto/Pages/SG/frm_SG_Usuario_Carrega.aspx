@@ -64,10 +64,10 @@
                     <div style="margin: 5px 5px 5px 5px;">
                         <asp:GridView ID="gdvUsuario" Width="100%" runat="server" AutoGenerateColumns="false">
                             <Columns>
-                                <asp:HyperLinkField HeaderText="Código" DataTextField="NCDUSUARIO" DataNavigateUrlFields="NCDUSUARIO" DataNavigateUrlFormatString="frm_SG_Usuario_IncluiAtualiza.aspx?CodigoProduto={0}" NavigateUrl="frm_SG_Usuario_IncluiAtualiza.aspx?CodigoProduto={0}" />
-                                <asp:HyperLinkField HeaderText="Nome" DataTextField="CDSUSUARIO" DataNavigateUrlFields="NCDUSUARIO" DataNavigateUrlFormatString="frm_SG_Usuario_IncluiAtualiza.aspx?CodigoProduto={0}" NavigateUrl="frm_SG_Usuario_IncluiAtualiza.aspx?CodigoProduto={0}" />
-                                <asp:HyperLinkField HeaderText="Usuario" DataTextField="CNMUSUARIO" DataNavigateUrlFields="NCDUSUARIO" DataNavigateUrlFormatString="frm_SG_Usuario_IncluiAtualiza.aspx?CodigoProduto={0}" NavigateUrl="frm_SG_Usuario_IncluiAtualiza.aspx?CodigoProduto={0}" />
-                                <asp:HyperLinkField HeaderText="Ativo" DataTextField="BIDATIVO_TEXTO" DataNavigateUrlFields="NCDUSUARIO" DataNavigateUrlFormatString="frm_SG_Usuario_IncluiAtualiza.aspx?CodigoProduto={0}" NavigateUrl="frm_SG_Usuario_IncluiAtualiza.aspx?CodigoProduto={0}" />
+                                <asp:HyperLinkField HeaderText="Código" DataTextField="NCDUSUARIO" DataNavigateUrlFields="NCDUSUARIO" DataNavigateUrlFormatString="frm_SG_Usuario_IncluiAtualiza.aspx?CodigoUsuario={0}" NavigateUrl="frm_SG_Usuario_IncluiAtualiza.aspx?CodigoUsuario={0}" />
+                                <asp:HyperLinkField HeaderText="Nome" DataTextField="CDSUSUARIO" DataNavigateUrlFields="NCDUSUARIO" DataNavigateUrlFormatString="frm_SG_Usuario_IncluiAtualiza.aspx?CodigoUsuario={0}" NavigateUrl="frm_SG_Usuario_IncluiAtualiza.aspx?CodigoUsuario={0}" />
+                                <asp:HyperLinkField HeaderText="Usuario" DataTextField="CNMUSUARIO" DataNavigateUrlFields="NCDUSUARIO" DataNavigateUrlFormatString="frm_SG_Usuario_IncluiAtualiza.aspx?CodigoUsuario={0}" NavigateUrl="frm_SG_Usuario_IncluiAtualiza.aspx?CodigoUsuario={0}" />
+                                <asp:HyperLinkField HeaderText="Ativo" DataTextField="BIDATIVO_TEXTO" DataNavigateUrlFields="NCDUSUARIO" DataNavigateUrlFormatString="frm_SG_Usuario_IncluiAtualiza.aspx?CodigoUsuario={0}" NavigateUrl="frm_SG_Usuario_IncluiAtualiza.aspx?CodigoUsuario={0}" />
                             </Columns>
                         </asp:GridView>
                     </div>

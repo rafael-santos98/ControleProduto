@@ -1,4 +1,4 @@
-use produto;
+	use produto;
 
 DELIMITER 	//
 	DROP PROCEDURE IF EXISTS SP_SG_Usuario_IncluiAtualiza;    //
@@ -20,7 +20,7 @@ DELIMITER 	//
 		-- =======================================================================================	
 		-- DECLARAÇÃO DE VARIÁVEIS
 		-- =======================================================================================	
-        DECLARE _MENSAGEM VARCHAR(100);
+        DECLARE _MENSAGEM VARCHAR(100);       
         
         IF _ACAO = 1 THEN
 			-- ===================================================================================
@@ -30,15 +30,13 @@ DELIMITER 	//
 			INTO 	TBUSUARIO 
             (
 					CDSUSUARIO,
-                    CNMUSUARIO,
-                    CDSSENHA,                    
+                    CNMUSUARIO,                                      
 					BIDATIVO
 			)
 			VALUES
 			(
 					_CDSUSUARIO,
-                    _CNMUSUARIO,
-                    _CDSSENHA,                    
+                    _CNMUSUARIO,                                       
 					_BIDATIVO
 			);               
 			
@@ -49,15 +47,14 @@ DELIMITER 	//
 			SELECT LAST_INSERT_ID() AS NCDUSUARIO, _MENSAGEM AS MENSAGEM;        
         END IF;
         
-        IF _ACAO = 2 THEN
+        IF _ACAO = 2 THEN			
 			-- ===================================================================================
 			-- UPDATE
 			-- ===================================================================================	                        
 			UPDATE	
 					TBUSUARIO
             SET		CDSUSUARIO 	= 	_CDSUSUARIO,
-					CNMUSUARIO	= 	_CNMUSUARIO,
-                    CDSSENHA	=	_CDSSENHA,
+					CNMUSUARIO	= 	_CNMUSUARIO,                    
             		BIDATIVO 	= 	_BIDATIVO
             WHERE	NCDUSUARIO	= 	_NCDUSUARIO;
             
@@ -66,7 +63,6 @@ DELIMITER 	//
 			-- ===================================================================================
 			SET _MENSAGEM = 'Usuário atualizado com sucesso!';            
             SELECT _MENSAGEM AS MENSAGEM;        
-        END IF;
- 
+        END IF; 
     END //
 DELIMITER ;
