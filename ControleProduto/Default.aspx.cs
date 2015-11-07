@@ -32,6 +32,31 @@ namespace ControleProduto
             }
         }
 
+        private Boolean CarregaAcessoPagina(string cnmUsuario, int ncdFuncionalidade, int ncdSubFuncionalidade) 
+        {
+            try
+            {
+                Misc.oConexao oConn = new Misc.oConexao();
+                SF_AP.oUsuario oMetodo = new SF_AP.oUsuario();
+                DataTable dt = new DataTable();
+
+                dt = oMetodo.CarregaUsuarioAcessoPagina(cnmUsuario, ncdFuncionalidade, ncdSubFuncionalidade, oConn.getConnection());
+
+                if (dt != null)
+                {
+                    if (Convert.ToBoolean(dt.Rows[0]["RETORNO"])) return true;
+                    else return false;  
+                }
+
+                return false;  
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
         private Boolean Logar(string cnmUsuario, string cdsSenha)
         {
             try
@@ -112,8 +137,22 @@ namespace ControleProduto
         protected void lnkbtnCadastroProduto_Click(object sender, EventArgs e)
         {
             try
-            {
-                IfrmRedirect.Attributes.Add("src", "Pages/Cadastro/frm_Cadastro_Produto_Carrega.aspx");
+            {   
+                //Usuário não logado
+                if (Session["sUsuario"] == null)
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Acesso negado');", true);
+                    return;
+                }
+                if (CarregaAcessoPagina(Session["sUsuario"].ToString(), 1, 0)) //Usuário com permissão
+                {
+                    IfrmRedirect.Attributes.Add("src", "Pages/Cadastro/frm_Cadastro_Produto_Carrega.aspx");
+                }
+                else //Usuário sem permissão
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Acesso negado');", true);
+                    return;
+                }
             }
             catch (Exception ex)
             {

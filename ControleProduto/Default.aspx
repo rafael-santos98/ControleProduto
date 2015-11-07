@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head runat="server">
-        <title>Controle de Estoque</title>
+        <title>Home Page - Controle de Estoque</title>
         
         <!-- Meta Tags -->     
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
