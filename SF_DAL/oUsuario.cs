@@ -111,5 +111,41 @@ namespace SF_DAL
                 throw ex;
             }
         }
+
+        public DataTable IncluiAtualizaUsuario(int ncdUsuario, string cdsUsuario, string cnmUsuario, bool bidAtivo, int Acao, string ConnectionString)
+        {
+            try
+            {
+
+                StringBuilder strSQL = new StringBuilder();
+                MySqlConnection conn = new MySqlConnection();
+                MySqlCommand mysqlCmd = new MySqlCommand();
+                MySqlDataAdapter da = new MySqlDataAdapter();
+                DataTable dt = new DataTable();
+
+                conn = new MySqlConnection(ConnectionString);
+                conn.Open();
+
+                mysqlCmd = new MySqlCommand("SP_SG_Usuario_IncluiAtualiza");
+                mysqlCmd.Parameters.AddWithValue("_NCDUSUARIO", ncdUsuario);
+                mysqlCmd.Parameters.AddWithValue("_CDSUSUARIO", cdsUsuario);
+                mysqlCmd.Parameters.AddWithValue("_CNMUSUARIO", cnmUsuario);
+                mysqlCmd.Parameters.AddWithValue("_BIDATIVO", bidAtivo);
+                mysqlCmd.Parameters.AddWithValue("_ACAO", Acao);
+
+                mysqlCmd.Connection = conn;
+                mysqlCmd.CommandTimeout = 500;
+                mysqlCmd.CommandType = CommandType.StoredProcedure;
+
+                da = new MySqlDataAdapter(mysqlCmd);
+                da.Fill(dt);
+
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

@@ -60,5 +60,23 @@ namespace SF_AP
                 throw ex;
             }
         }
+
+        public DataTable IncluiAtualizaUsuario(int ncdUsuario, string cdsUsuario, string cnmUsuario, bool bidAtivo, int Acao, string ConnectionString)
+        {
+            try
+            {
+
+                SF_BLL.oUsuario oMetodo = new SF_BLL.oUsuario();
+                DataTable dt = new DataTable();
+
+                dt = oMetodo.IncluiAtualizaUsuario(ncdUsuario, cdsUsuario, cnmUsuario, bidAtivo, Acao, ConnectionString);
+
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

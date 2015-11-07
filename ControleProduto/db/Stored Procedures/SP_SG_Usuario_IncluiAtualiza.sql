@@ -23,28 +23,37 @@ DELIMITER 	//
         DECLARE _MENSAGEM VARCHAR(100);       
         
         IF _ACAO = 1 THEN
-			-- ===================================================================================
-			-- INSERT
-			-- ===================================================================================	                
-			INSERT 
-			INTO 	TBUSUARIO 
-            (
-					CDSUSUARIO,
-                    CNMUSUARIO,                                      
-					BIDATIVO
-			)
-			VALUES
-			(
-					_CDSUSUARIO,
-                    _CNMUSUARIO,                                       
-					_BIDATIVO
-			);               
-			
-			-- ===================================================================================
-			-- RETORNO DE DADOS
-			-- ===================================================================================
-			SET _MENSAGEM = 'Usuário inserido com sucesso!';
-			SELECT LAST_INSERT_ID() AS NCDUSUARIO, _MENSAGEM AS MENSAGEM;        
+        
+			IF EXISTS(SELECT * FROM TBUSUARIO WHERE CNMUSUARIO = _CNMUSUARIO) THEN
+				-- ===============================================================================
+				-- RETORNO DE DADOS
+				-- ===============================================================================            
+				SET _MENSAGEM = 'Usuário já existe no sistema!';
+                SELECT _MENSAGEM AS MENSAGEM, 0 AS RETORNO;
+			ELSE 
+				-- ===============================================================================
+				-- INSERT
+				-- ===============================================================================
+				INSERT 
+				INTO 	TBUSUARIO 
+				(
+						CDSUSUARIO,
+						CNMUSUARIO,                                      
+						BIDATIVO
+				)
+				VALUES
+				(
+						_CDSUSUARIO,
+						_CNMUSUARIO,                                       
+						_BIDATIVO
+				);				
+				-- ===============================================================================
+				-- RETORNO DE DADOS
+				-- ===============================================================================
+				SET _MENSAGEM = 'Usuário inserido com sucesso!';
+				SELECT LAST_INSERT_ID() AS NCDUSUARIO, _MENSAGEM AS MENSAGEM, 1 AS RETORNO;               
+            END IF;
+     
         END IF;
         
         IF _ACAO = 2 THEN			
