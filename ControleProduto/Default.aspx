@@ -178,6 +178,28 @@
                                     </li>                                        
                                 </ul>
                             </li>
+
+                            <li>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Segurança <b class="caret"></b></a>
+                                <ul class="dropdown-menu">                                        
+                                    <li class="dropdown-submenu">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuário</a>
+                                        <ul class="dropdown-menu">
+                                            <li>                                                
+                                                <asp:LinkButton ID="LinkButton1" runat="server" Text="Cadastro de Usuário"></asp:LinkButton>
+                                            </li>
+                                        </ul>                                     
+                                    </li> 
+                                    <li class="dropdown-submenu">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Permissões</a>
+                                        <ul class="dropdown-menu">
+                                            <li>                                                
+                                                <asp:LinkButton ID="LinkButton2" runat="server" Text="Permissões por Usuário"></asp:LinkButton>
+                                            </li>
+                                        </ul>                                     
+                                    </li>                                                                              
+                                </ul>
+                            </li>
                         </ul>
 
                         <!-- Deslogado-->
