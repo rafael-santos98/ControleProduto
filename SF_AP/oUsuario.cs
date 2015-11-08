@@ -114,5 +114,23 @@ namespace SF_AP
                 throw ex;
             }
         }
+
+        public DataTable IncluiExcluiPermisssaoAcessoUsuario(int ncdPermissaoAcesso, string cnmUsuario, int ncdFuncionalidade, int ncdSubFuncionalide, int Acao, string ConnectionString)
+        {
+            try
+            {
+
+                SF_BLL.oUsuario oMetodo = new SF_BLL.oUsuario();
+                DataTable dt = new DataTable();
+
+                dt = oMetodo.IncluiExcluiPermisssaoAcessoUsuario(ncdPermissaoAcesso, cnmUsuario, ncdFuncionalidade, ncdSubFuncionalide, Acao, ConnectionString);
+
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

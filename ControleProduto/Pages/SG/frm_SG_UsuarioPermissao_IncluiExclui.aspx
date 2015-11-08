@@ -16,16 +16,16 @@
 
             <div style="width:1000px">
                 <div style="float:left">
-                    <asp:ListBox ID="lstPermissoesNaoAssociadas" runat="server" Width="300px" SelectionMode="Multiple"></asp:ListBox>
+                    <asp:ListBox ID="lstPermissoesNaoAssociadas" runat="server" Width="350px" Height="200px" SelectionMode="Multiple"></asp:ListBox>
                 </div>
                 
                 <div style="float:left; width:100px;text-align:center;">
-                    <asp:Button ID="btnAdd" runat="server" Text=" >> " />
-                    <asp:Button ID="btnRemove" runat="server" Text=" << " />
+                    <asp:Button ID="btnAdd" runat="server" Text=" >> " OnClick="btnAdd_Click" />
+                    <asp:Button ID="btnRemove" runat="server" Text=" << " OnClick="btnRemove_Click" />
                 </div>
 
                 <div style="float:left">
-                    <asp:ListBox ID="lstPermissoesAssociadas" runat="server" Width="300px"></asp:ListBox>
+                    <asp:ListBox ID="lstPermissoesAssociadas" runat="server" Width="350px" Height="200px"  SelectionMode="Multiple"></asp:ListBox>
                 </div>
             </div>
 

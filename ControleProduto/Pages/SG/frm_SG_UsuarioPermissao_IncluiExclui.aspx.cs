@@ -50,7 +50,7 @@ namespace ControleProduto.Pages.SG
                 String Error = ex.Message.ToString();
             }
         }
-        
+
         private void CarregaUsuarioPermissoesNaoAssociadas()
         {
             try
@@ -58,7 +58,7 @@ namespace ControleProduto.Pages.SG
                 //Declarações de variáveis
                 Misc.oConexao oConn = new Misc.oConexao();
                 SF_AP.oUsuario oMetodo = new SF_AP.oUsuario();
-                DataTable dt = new DataTable();                
+                DataTable dt = new DataTable();
                 string cnmUsuario = string.Empty;
                 int Acao = 0;
 
@@ -115,13 +115,109 @@ namespace ControleProduto.Pages.SG
             }
         }
 
+        private void IncluiUsuarioPermissao()
+        {
+            try
+            {
+                //Percorrendo o listbox e obtendo o código da funcionalidade e subfuncionalidade
+                foreach (ListItem item in lstPermissoesNaoAssociadas.Items)
+                {
+                    //Adicionando permissão do item selecionado
+                    if (item.Selected == true)
+                    {
+                        //Declarações de variáveis
+                        Misc.oConexao oConn = new Misc.oConexao();
+                        SF_AP.oUsuario oMetodo = new SF_AP.oUsuario();
+                        DataTable dt = new DataTable();
+                        int ncdPermissaoAcesso = 0;
+                        string cnmUsuario = string.Empty;
+                        int ncdFuncionalidade = 0;
+                        int ncdSubFuncionalidade = 0;
+                        int Acao = 0;
+
+                        //Define valor para variáveis
+                        string[] ncdFunSub = item.Value.ToString().Split('|');
+                        cnmUsuario = ddlUsuario.SelectedItem.Text.ToString();
+                        ncdFuncionalidade = int.Parse(ncdFunSub[0].ToString());
+                        ncdSubFuncionalidade = int.Parse(ncdFunSub[1].ToString());
+                        Acao = 1;
+
+                        dt = oMetodo.IncluiExcluiPermisssaoAcessoUsuario(ncdPermissaoAcesso, cnmUsuario, ncdFuncionalidade, ncdSubFuncionalidade, Acao, oConn.getConnection());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert(Erro ao Incluir Permissão de Acesso!');", true);
+                String Error = ex.Message.ToString();
+            }
+
+        }
+
+        private void ExcluiUsuarioPermissao()
+        {
+            try
+            {
+                //Percorrendo o listbox e obtendo o código da funcionalidade e subfuncionalidade
+                foreach (ListItem item in lstPermissoesAssociadas.Items)
+                {
+                    //Removendo permissão do item selecionado
+                    if (item.Selected == true)
+                    {
+                        //Declarações de variáveis
+                        Misc.oConexao oConn = new Misc.oConexao();
+                        SF_AP.oUsuario oMetodo = new SF_AP.oUsuario();
+                        DataTable dt = new DataTable();
+                        int ncdPermissaoAcesso = 0;
+                        string cnmUsuario = string.Empty;
+                        int ncdFuncionalidade = 0;
+                        int ncdSubFuncionalidade = 0;
+                        int Acao = 0;
+
+                        //Define valor para variáveis
+                        ncdPermissaoAcesso = int.Parse(item.Value.ToString());
+                        Acao = 2;
+
+                        dt = oMetodo.IncluiExcluiPermisssaoAcessoUsuario(ncdPermissaoAcesso, cnmUsuario, ncdFuncionalidade, ncdSubFuncionalidade, Acao, oConn.getConnection());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert(Erro ao Incluir Permissão de Acesso!');", true);
+                String Error = ex.Message.ToString();
+            }
+        }
+
         protected void ddlUsuario_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (ddlUsuario.SelectedIndex > 0)
             {
                 CarregaUsuarioPermissoesNaoAssociadas();
-                CarregaUsuarioPermissoesAssociadas();    
-            }            
+                CarregaUsuarioPermissoesAssociadas();
+            }
+        }
+
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (ddlUsuario.SelectedIndex > 0)
+            {
+                IncluiUsuarioPermissao();
+                CarregaUsuarioPermissoesAssociadas();
+                CarregaUsuarioPermissoesNaoAssociadas();
+            }
+        }
+
+        protected void btnRemove_Click(object sender, EventArgs e)
+        {
+            if (ddlUsuario.SelectedIndex > 0) 
+            {
+                ExcluiUsuarioPermissao();
+                CarregaUsuarioPermissoesAssociadas();
+                CarregaUsuarioPermissoesNaoAssociadas();
+            }
         }
     }
 }

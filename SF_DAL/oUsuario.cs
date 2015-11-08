@@ -163,9 +163,9 @@ namespace SF_DAL
                 conn.Open();
 
                 mysqlCmd = new MySqlCommand("SP_SG_UsuarioSenha_Atualiza");
-                mysqlCmd.Parameters.AddWithValue("_NCDUSUARIO", ncdUsuario);                
+                mysqlCmd.Parameters.AddWithValue("_NCDUSUARIO", ncdUsuario);
                 mysqlCmd.Parameters.AddWithValue("_CNMUSUARIO", cnmUsuario);
-                mysqlCmd.Parameters.AddWithValue("_CDSSENHA", cdsSenha);                
+                mysqlCmd.Parameters.AddWithValue("_CDSSENHA", cdsSenha);
 
                 mysqlCmd.Connection = conn;
                 mysqlCmd.CommandTimeout = 500;
@@ -196,8 +196,44 @@ namespace SF_DAL
                 conn = new MySqlConnection(ConnectionString);
                 conn.Open();
 
-                mysqlCmd = new MySqlCommand("SP_SG_UsuarioPermissaoAcesso_Carrega");                
+                mysqlCmd = new MySqlCommand("SP_SG_UsuarioPermissaoAcesso_Carrega");
                 mysqlCmd.Parameters.AddWithValue("_CNMUSUARIO", cnmUsuario);
+                mysqlCmd.Parameters.AddWithValue("_ACAO", Acao);
+
+                mysqlCmd.Connection = conn;
+                mysqlCmd.CommandTimeout = 500;
+                mysqlCmd.CommandType = CommandType.StoredProcedure;
+
+                da = new MySqlDataAdapter(mysqlCmd);
+                da.Fill(dt);
+
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public DataTable IncluiExcluiPermisssaoAcessoUsuario(int ncdPermissaoAcesso, string cnmUsuario, int ncdFuncionalidade, int ncdSubFuncionalide, int Acao, string ConnectionString)
+        {
+            try
+            {
+
+                StringBuilder strSQL = new StringBuilder();
+                MySqlConnection conn = new MySqlConnection();
+                MySqlCommand mysqlCmd = new MySqlCommand();
+                MySqlDataAdapter da = new MySqlDataAdapter();
+                DataTable dt = new DataTable();
+
+                conn = new MySqlConnection(ConnectionString);
+                conn.Open();
+
+                mysqlCmd = new MySqlCommand("SP_SG_UsuarioPermissaoAcesso_IncluiExclui");
+                mysqlCmd.Parameters.AddWithValue("_NCDPERMISSAOACESSO", ncdPermissaoAcesso);
+                mysqlCmd.Parameters.AddWithValue("_CNMUSUARIO", cnmUsuario);
+                mysqlCmd.Parameters.AddWithValue("_NCDFUNCIONALIDADE", ncdFuncionalidade);
+                mysqlCmd.Parameters.AddWithValue("_NCDSUBFUNCIONALIDADE", ncdSubFuncionalide > 0 ? ncdSubFuncionalide : (object)DBNull.Value);
                 mysqlCmd.Parameters.AddWithValue("_ACAO", Acao);
 
                 mysqlCmd.Connection = conn;
