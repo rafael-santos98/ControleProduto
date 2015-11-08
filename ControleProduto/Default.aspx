@@ -186,7 +186,7 @@
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuário</a>
                                         <ul class="dropdown-menu">
                                             <li>                                                
-                                                <asp:LinkButton ID="LinkButton1" runat="server" Text="Cadastro de Usuário"></asp:LinkButton>
+                                                <asp:LinkButton ID="lnkbtnSGCadastroUsuario" runat="server" Text="Cadastro de Usuário" OnClick="lnkbtnSGCadastroUsuario_Click"></asp:LinkButton>
                                             </li>
                                         </ul>                                     
                                     </li> 
@@ -194,7 +194,7 @@
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Permissões</a>
                                         <ul class="dropdown-menu">
                                             <li>                                                
-                                                <asp:LinkButton ID="LinkButton2" runat="server" Text="Permissões por Usuário"></asp:LinkButton>
+                                                <asp:LinkButton ID="lnkbtnSGPermissaoUsuario" runat="server" Text="Permissões por Usuário" OnClick="lnkbtnSGPermissaoUsuario_Click"></asp:LinkButton>
                                             </li>
                                         </ul>                                     
                                     </li>                                                                              

@@ -32,7 +32,7 @@ namespace ControleProduto
             }
         }
 
-        private Boolean CarregaAcessoPagina(string cnmUsuario, int ncdFuncionalidade, int ncdSubFuncionalidade) 
+        private Boolean CarregaAcessoPagina(string cnmUsuario, int ncdFuncionalidade, int ncdSubFuncionalidade)
         {
             try
             {
@@ -45,14 +45,14 @@ namespace ControleProduto
                 if (dt != null)
                 {
                     if (Convert.ToBoolean(dt.Rows[0]["RETORNO"])) return true;
-                    else return false;  
+                    else return false;
                 }
 
-                return false;  
+                return false;
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }
@@ -68,7 +68,7 @@ namespace ControleProduto
                 dt = oMetodo.CarregaUsuarioAcesso(cnmUsuario, cdsSenha, oConn.getConnection());
 
                 if (dt != null)
-                {   
+                {
                     if (Convert.ToBoolean(dt.Rows[0]["RETORNO"]))
                     {
                         if (chkLembrar.Checked == true)
@@ -137,22 +137,21 @@ namespace ControleProduto
         protected void lnkbtnCadastroProduto_Click(object sender, EventArgs e)
         {
             try
-            {   
+            {
                 //Usuário não logado
                 if (Session["sUsuario"] == null)
                 {
                     ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Acesso negado');", true);
                     return;
                 }
-                if (CarregaAcessoPagina(Session["sUsuario"].ToString(), 1, 0)) //Usuário com permissão
+                if (!CarregaAcessoPagina(Session["sUsuario"].ToString(), 1, 0)) //Usuário sem permissão
                 {
-                    IfrmRedirect.Attributes.Add("src", "Pages/Cadastro/frm_Cadastro_Produto_Carrega.aspx");
-                }
-                else //Usuário sem permissão
-                {
+                    
                     ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Acesso negado');", true);
                     return;
                 }
+
+                IfrmRedirect.Attributes.Add("src", "Pages/Cadastro/frm_Cadastro_Produto_Carrega.aspx");
             }
             catch (Exception ex)
             {
@@ -164,12 +163,63 @@ namespace ControleProduto
         {
             try
             {
+                //Usuário não logado
+                if (Session["sUsuario"] == null)
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Acesso negado');", true);
+                    return;
+                }
+
+                if (!CarregaAcessoPagina(Session["sUsuario"].ToString(), 2, 0)) //Usuário sem permissão
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Acesso negado');", true);
+                    return;
+                }
+           
                 IfrmRedirect.Attributes.Add("src", "Pages/Movimento/frm_Movimento_Produto_Carrega.aspx");
             }
             catch (Exception ex)
             {
                 throw ex;
             }
+        }
+
+        protected void lnkbtnSGCadastroUsuario_Click(object sender, EventArgs e)
+        {
+            //Usuário não logado
+            if (Session["sUsuario"] == null)
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Acesso negado');", true);
+                return;
+            }
+
+            if (!CarregaAcessoPagina(Session["sUsuario"].ToString(), 3, 0)) //Usuário sem permissão
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Acesso negado');", true);
+                return;
+            }
+       
+            IfrmRedirect.Attributes.Add("src", "Pages/SG/frm_SG_Usuario_Carrega.aspx");
+        }
+
+        protected void lnkbtnSGPermissaoUsuario_Click(object sender, EventArgs e)
+        {
+            //Usuário não logado
+            if (Session["sUsuario"] == null)
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Acesso negado');", true);
+                return;
+            }
+
+            IfrmRedirect.Attributes.Add("src", "Pages/SG/frm_SG_UsuarioPermissao_IncluiExclui.aspx");
+            /*
+            if (!CarregaAcessoPagina(Session["sUsuario"].ToString(), 4, 0)) //Usuário com permissão
+            {
+             *  ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Acesso negado');", true);
+                return;
+            }
+            IfrmRedirect.Attributes.Add("src", "Pages/SG/frm_SG_UsuarioPermissao_IncluiExclui.aspx");             
+             */
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
@@ -208,5 +258,7 @@ namespace ControleProduto
                 throw ex;
             }
         }
+
+
     }
 }
