@@ -50,8 +50,7 @@ namespace ControleProduto.Pages.SG
                 String Error = ex.Message.ToString();
             }
         }
-
-
+        
         private void CarregaUsuarioPermissoesNaoAssociadas()
         {
             try
