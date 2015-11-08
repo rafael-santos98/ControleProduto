@@ -81,6 +81,7 @@
     <Content Include="Pages\Cadastro\frm_Cadastro_Produto_Carrega.aspx" />
     <Content Include="Pages\Movimento\frm_Movimento_Produto_Inclui.aspx" />
     <Content Include="Pages\Movimento\frm_Movimento_Produto_Carrega.aspx" />
+    <Content Include="Pages\SG\frm_SG_UsuarioPermissao_IncluiExclui.aspx" />
     <Content Include="Pages\SG\frm_SG_Usuario_Carrega.aspx" />
     <Content Include="Pages\SG\frm_SG_Usuario_IncluiAtualiza.aspx" />
     <Content Include="Scripts\jquery-1.7.1.intellisense.js" />
@@ -148,6 +149,13 @@
     </Compile>
     <Compile Include="Pages\Movimento\frm_Movimento_Produto_Carrega.aspx.designer.cs">
       <DependentUpon>frm_Movimento_Produto_Carrega.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SG\frm_SG_UsuarioPermissao_IncluiExclui.aspx.cs">
+      <DependentUpon>frm_SG_UsuarioPermissao_IncluiExclui.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SG\frm_SG_UsuarioPermissao_IncluiExclui.aspx.designer.cs">
+      <DependentUpon>frm_SG_UsuarioPermissao_IncluiExclui.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\SG\frm_SG_Usuario_Carrega.aspx.cs">
       <DependentUpon>frm_SG_Usuario_Carrega.aspx</DependentUpon>
