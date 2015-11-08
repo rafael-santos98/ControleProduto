@@ -147,5 +147,39 @@ namespace SF_DAL
                 throw ex;
             }
         }
+
+        public DataTable AtualizaUsuarioSenha(int ncdUsuario, string cnmUsuario, int cdsSenha, string ConnectionString)
+        {
+            try
+            {
+
+                StringBuilder strSQL = new StringBuilder();
+                MySqlConnection conn = new MySqlConnection();
+                MySqlCommand mysqlCmd = new MySqlCommand();
+                MySqlDataAdapter da = new MySqlDataAdapter();
+                DataTable dt = new DataTable();
+
+                conn = new MySqlConnection(ConnectionString);
+                conn.Open();
+
+                mysqlCmd = new MySqlCommand("SP_SG_UsuarioSenha_Atualiza");
+                mysqlCmd.Parameters.AddWithValue("_NCDUSUARIO", ncdUsuario);                
+                mysqlCmd.Parameters.AddWithValue("_CNMUSUARIO", cnmUsuario);
+                mysqlCmd.Parameters.AddWithValue("_CDSSENHA", cdsSenha);                
+
+                mysqlCmd.Connection = conn;
+                mysqlCmd.CommandTimeout = 500;
+                mysqlCmd.CommandType = CommandType.StoredProcedure;
+
+                da = new MySqlDataAdapter(mysqlCmd);
+                da.Fill(dt);
+
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

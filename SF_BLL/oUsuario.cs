@@ -78,5 +78,23 @@ namespace SF_BLL
                 throw ex;
             }
         }
+
+        public DataTable AtualizaUsuarioSenha(int ncdUsuario, string cnmUsuario, int cdsSenha, string ConnectionString)
+        {
+            try
+            {
+
+                SF_DAL.oUsuario oMetodo = new SF_DAL.oUsuario();
+                DataTable dt = new DataTable();
+
+                dt = oMetodo.AtualizaUsuarioSenha(ncdUsuario, cnmUsuario, cdsSenha, ConnectionString);
+
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
