@@ -40,8 +40,8 @@
                     </table>
 
                     <div style="float:left;">
-                        <asp:Button ID="btnIncluir" runat="server" Width="100px" Text="Incluir" />
-                        <asp:Button ID="btnAlterar" runat="server" Width="100px" Text="Alterar"  />
+                        <asp:Button ID="btnIncluir" runat="server" Width="100px" Text="Incluir" OnClick="btnIncluir_Click" />
+                        <asp:Button ID="btnAlterar" runat="server" Width="100px" Text="Alterar" OnClick="btnAlterar_Click"  />
                         <asp:Button ID="btnNovo" runat="server" Width="100px" Text="Novo" OnClick="btnNovo_Click"  />
                         <asp:Button ID="btnVoltar" runat="server" Width="100px" Text="Voltar" OnClick="btnVoltar_Click"  />
                     </div>

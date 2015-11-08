@@ -79,7 +79,7 @@ namespace SF_BLL
             }
         }
 
-        public DataTable AtualizaUsuarioSenha(int ncdUsuario, string cnmUsuario, int cdsSenha, string ConnectionString)
+        public DataTable AtualizaUsuarioSenha(int ncdUsuario, string cnmUsuario, string cdsSenha, string ConnectionString)
         {
             try
             {

@@ -60,6 +60,119 @@ namespace ControleProduto.Pages.SG
             }
         }
 
+        private void IncluiUsuario()
+        {
+            try
+            {
+                //Declarações de variáveis
+                Misc.oConexao oConn = new Misc.oConexao();
+                SF_AP.oUsuario oMetodo = new SF_AP.oUsuario();
+                DataTable dt = new DataTable();
+                int ncdUsuario = 0;
+                string cdsUsuario = string.Empty;
+                string cnmUsuario = string.Empty;
+                bool bidAtivo = true;
+                int Acao = 0;
+
+                //Passagem dos valores para variáveis
+                if (!string.IsNullOrEmpty(txtDescricao.Text.Trim())) cdsUsuario = txtDescricao.Text.Trim();
+                if (!string.IsNullOrEmpty(txtNomeUsuario.Text.Trim())) cnmUsuario = txtNomeUsuario.Text.Trim();
+                bidAtivo = chkAtivo.Checked;
+                Acao = 1;
+
+                dt = oMetodo.IncluiAtualizaUsuario(ncdUsuario, cdsUsuario, cnmUsuario, bidAtivo, Acao, oConn.getConnection());
+
+                if (dt != null)
+                {
+                    if (Convert.ToBoolean(dt.Rows[0]["RETORNO"]))
+                    {
+                        txtCodigo.Text = dt.Rows[0]["NCDUSUARIO"].ToString();
+                        hdfCodigoUsuario.Value = dt.Rows[0]["NCDUSUARIO"].ToString();
+                        CarregaPerfil_Atualizacao();                        
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('" + dt.Rows[0]["MENSAGEM"].ToString() + "');", true);
+                    }
+                    else
+                    {
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('" + dt.Rows[0]["MENSAGEM"].ToString() + "');", true);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Erro ao Incluir Produto!');", true);
+                String Error = ex.Message.ToString();
+            }
+        }
+
+        private void AtualizaUsuario()
+        {
+            try
+            {
+                //Declarações de variáveis
+                Misc.oConexao oConn = new Misc.oConexao();
+                SF_AP.oUsuario oMetodo = new SF_AP.oUsuario();
+                DataTable dt = new DataTable();
+                int ncdUsuario = 0;
+                string cdsUsuario = string.Empty;
+                string cnmUsuario = string.Empty;
+                bool bidAtivo = true;
+                int Acao = 0;
+
+                //Passagem dos valores para variáveis
+                if (!string.IsNullOrEmpty(hdfCodigoUsuario.Value)) ncdUsuario = int.Parse(hdfCodigoUsuario.Value);
+                if (!string.IsNullOrEmpty(txtDescricao.Text.Trim())) cdsUsuario = txtDescricao.Text.Trim();
+                if (!string.IsNullOrEmpty(txtNomeUsuario.Text.Trim())) cnmUsuario = txtNomeUsuario.Text.Trim();
+                bidAtivo = chkAtivo.Checked;
+                Acao = 2;
+
+                dt = oMetodo.IncluiAtualizaUsuario(ncdUsuario, cdsUsuario, cnmUsuario, bidAtivo, Acao, oConn.getConnection());
+
+                if (dt != null)
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('" + dt.Rows[0]["MENSAGEM"].ToString() + "');", true);
+                }
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Erro ao Incluir Produto!');", true);
+                String Error = ex.Message.ToString();
+            }
+        }
+
+        private void AtualizaUsuarioSenha()
+        {
+            try
+            {
+                //Declarações de variáveis
+                Misc.oConexao oConn = new Misc.oConexao();
+                SF_AP.oUsuario oMetodo = new SF_AP.oUsuario();
+                Misc.oFuncoes oFuncoes = new Misc.oFuncoes();
+                Misc.oCriptografia oCriptografia = new Misc.oCriptografia();
+                DataTable dt = new DataTable();
+                int ncdUsuario = 0;
+                string cdsUsuario = string.Empty;
+                string cnmUsuario = string.Empty;
+                string cdsSenha = string.Empty;
+
+                //Passagem dos valores para variáveis
+                if (!string.IsNullOrEmpty(hdfCodigoUsuario.Value)) ncdUsuario = int.Parse(hdfCodigoUsuario.Value);
+                if (chkSenhaPadrao.Checked) cdsSenha = oFuncoes.CarregaSenhaPadrao();
+                else cdsSenha = oCriptografia.SHA512(txtSenha_1.Text.Trim());
+
+                dt = oMetodo.AtualizaUsuarioSenha(ncdUsuario, cnmUsuario, cdsSenha, oConn.getConnection());
+
+                if (dt != null)
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('" + dt.Rows[0]["MENSAGEM"].ToString() + "');", true);
+                }
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Erro ao Incluir Produto!');", true);
+                String Error = ex.Message.ToString();
+            }
+        }
+
         private void CarregaPerfil_Inclusao()
         {
             try
@@ -80,10 +193,13 @@ namespace ControleProduto.Pages.SG
         {
             try
             {
+                chkSenhaPadrao.Checked = true;
                 btnIncluir.Enabled = false;
                 btnAlterar.Enabled = true;
                 btnNovo.Enabled = true;
                 dvAlterar_Senha.Attributes.Add("style", "display:inline;");
+                txtSenha_1.Enabled = false;
+                txtSenha_2.Enabled = false;
             }
             catch (Exception ex)
             {
@@ -145,6 +261,41 @@ namespace ControleProduto.Pages.SG
             }
         }
 
+        protected void btnIncluir_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtDescricao.Text.Trim()))
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Preencha o campo Nome!');", true);
+                return;
+            }
+
+            if (string.IsNullOrEmpty(txtNomeUsuario.Text.Trim()))
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Preencha o campo Nome de Usuário!');", true);
+                return;
+            }
+
+            IncluiUsuario();
+            AtualizaUsuarioSenha();
+        }
+
+        protected void btnAlterar_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtDescricao.Text.Trim()))
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Preencha o campo Nome!');", true);
+                return;
+            }
+
+            if (string.IsNullOrEmpty(txtNomeUsuario.Text.Trim()))
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Preencha o campo Nome de Usuário!');", true);
+                return;
+            }
+
+            AtualizaUsuario();
+        }
+
         protected void btnAlterar_Senha_Click(object sender, EventArgs e)
         {
             try
@@ -169,6 +320,7 @@ namespace ControleProduto.Pages.SG
                         return;
                     }
                 }
+                AtualizaUsuarioSenha();
             }
             catch (Exception ex)
             {
