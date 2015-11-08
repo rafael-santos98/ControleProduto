@@ -49,13 +49,13 @@ namespace ControleProduto.Pages.SG {
         protected global::System.Web.UI.WebControls.TextBox txtDescricao;
         
         /// <summary>
-        /// TextBox1 control.
+        /// txtNomeUsuario control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox txtNomeUsuario;
         
         /// <summary>
         /// chkAtivo control.

@@ -30,7 +30,7 @@
                         <tr>
                             <td>Nome de Usuário:</td>
                             <td>
-                                <asp:TextBox ID="TextBox1" runat="server" Width="150px"></asp:TextBox>
+                                <asp:TextBox ID="txtNomeUsuario" runat="server" Width="150px"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
@@ -42,7 +42,7 @@
                     <div style="float:left;">
                         <asp:Button ID="btnIncluir" runat="server" Width="100px" Text="Incluir" />
                         <asp:Button ID="btnAlterar" runat="server" Width="100px" Text="Alterar"  />
-                        <asp:Button ID="btnNovo" runat="server" Width="100px" Text="Novo"  />
+                        <asp:Button ID="btnNovo" runat="server" Width="100px" Text="Novo" OnClick="btnNovo_Click"  />
                         <asp:Button ID="btnVoltar" runat="server" Width="100px" Text="Voltar" OnClick="btnVoltar_Click"  />
                     </div>
                 </fieldset>
@@ -69,7 +69,7 @@
                         </table>
 
                         <div style="float:left;">
-                            <asp:Button ID="btnAlterar_Senha" runat="server" Width="100px" Text="Alterar" />
+                            <asp:Button ID="btnAlterar_Senha" runat="server" Width="100px" Text="Alterar" OnClick="btnAlterar_Senha_Click" />
                         </div>
                     </fieldset>
                 </div>
