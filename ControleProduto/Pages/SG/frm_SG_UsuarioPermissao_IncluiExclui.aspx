@@ -10,13 +10,13 @@
         <form id="form1" runat="server">
             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
-            <asp:DropDownList ID="ddlUsuario" runat="server" Width="150px"></asp:DropDownList>
+            <asp:DropDownList ID="ddlUsuario" runat="server" Width="150px" AutoPostBack="true" OnSelectedIndexChanged="ddlUsuario_SelectedIndexChanged"></asp:DropDownList>
 
             <div style="clear:both"><br /></div>
 
             <div style="width:1000px">
                 <div style="float:left">
-                    <asp:ListBox ID="lstPermissoesAssociadas" runat="server" Width="300px"></asp:ListBox>
+                    <asp:ListBox ID="lstPermissoesNaoAssociadas" runat="server" Width="300px" SelectionMode="Multiple"></asp:ListBox>
                 </div>
                 
                 <div style="float:left; width:100px;text-align:center;">
@@ -25,7 +25,7 @@
                 </div>
 
                 <div style="float:left">
-                    <asp:ListBox ID="lstPermissoesNaoAssociadas" runat="server" Width="300px"></asp:ListBox>
+                    <asp:ListBox ID="lstPermissoesAssociadas" runat="server" Width="300px"></asp:ListBox>
                 </div>
             </div>
 

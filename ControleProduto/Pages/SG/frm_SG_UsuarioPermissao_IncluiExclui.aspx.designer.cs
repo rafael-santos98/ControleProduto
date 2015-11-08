@@ -40,13 +40,13 @@ namespace ControleProduto.Pages.SG {
         protected global::System.Web.UI.WebControls.DropDownList ddlUsuario;
         
         /// <summary>
-        /// lstPermissoesAssociadas control.
+        /// lstPermissoesNaoAssociadas control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lstPermissoesAssociadas;
+        protected global::System.Web.UI.WebControls.ListBox lstPermissoesNaoAssociadas;
         
         /// <summary>
         /// btnAdd control.
@@ -67,12 +67,12 @@ namespace ControleProduto.Pages.SG {
         protected global::System.Web.UI.WebControls.Button btnRemove;
         
         /// <summary>
-        /// lstPermissoesNaoAssociadas control.
+        /// lstPermissoesAssociadas control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lstPermissoesNaoAssociadas;
+        protected global::System.Web.UI.WebControls.ListBox lstPermissoesAssociadas;
     }
 }

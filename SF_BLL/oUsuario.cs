@@ -96,5 +96,23 @@ namespace SF_BLL
                 throw ex;
             }
         }
+
+        public DataTable CarregaUsuarioPermissaoAcesso(string cnmUsuario, int Acao, string ConnectionString)
+        {
+            try
+            {
+
+                SF_DAL.oUsuario oMetodo = new SF_DAL.oUsuario();
+                DataTable dt = new DataTable();
+
+                dt = oMetodo.CarregaUsuarioPermissaoAcesso(cnmUsuario, Acao, ConnectionString);
+
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
