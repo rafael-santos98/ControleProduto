@@ -146,7 +146,7 @@ namespace ControleProduto
                 }
                 if (!CarregaAcessoPagina(Session["sUsuario"].ToString(), 1, 0)) //Usuário sem permissão
                 {
-                    
+
                     ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Acesso negado');", true);
                     return;
                 }
@@ -175,7 +175,7 @@ namespace ControleProduto
                     ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Acesso negado');", true);
                     return;
                 }
-           
+
                 IfrmRedirect.Attributes.Add("src", "Pages/Movimento/frm_Movimento_Produto_Carrega.aspx");
             }
             catch (Exception ex)
@@ -198,7 +198,7 @@ namespace ControleProduto
                 ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Acesso negado');", true);
                 return;
             }
-       
+
             IfrmRedirect.Attributes.Add("src", "Pages/SG/frm_SG_Usuario_Carrega.aspx");
         }
 
@@ -211,15 +211,20 @@ namespace ControleProduto
                 return;
             }
 
-            IfrmRedirect.Attributes.Add("src", "Pages/SG/frm_SG_UsuarioPermissao_IncluiExclui.aspx");
-            /*
-            if (!CarregaAcessoPagina(Session["sUsuario"].ToString(), 4, 0)) //Usuário com permissão
+            //Administrador tem acesso
+            if (Session["sUsuario"].ToString() == "admin")
             {
-             *  ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Acesso negado');", true);
+                IfrmRedirect.Attributes.Add("src", "Pages/SG/frm_SG_UsuarioPermissao_IncluiExclui.aspx");
                 return;
             }
-            IfrmRedirect.Attributes.Add("src", "Pages/SG/frm_SG_UsuarioPermissao_IncluiExclui.aspx");             
-             */
+
+            if (!CarregaAcessoPagina(Session["sUsuario"].ToString(), 4, 0)) //Usuário com permissão
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Acesso negado');", true);
+                return;
+            }
+            IfrmRedirect.Attributes.Add("src", "Pages/SG/frm_SG_UsuarioPermissao_IncluiExclui.aspx");
+
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)

@@ -157,7 +157,7 @@ namespace ControleProduto.Pages.Movimento
         {
             try
             {
-                Response.Redirect("../../Default.aspx");
+                Response.Redirect("../../frmInicial.aspx");
             }
             catch (Exception ex)
             {

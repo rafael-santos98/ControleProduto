@@ -5,9 +5,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head runat="server">
         <title></title>
-        <style type="text/css">
 
-        </style>
+        <!-- Meta Tags -->     
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- JQuery Script -->             
+        <script type="text/javascript" src="../../Scripts/jquery-1.9.1.js"></script>        
+
+        <!-- Bootstrap Core CSS -->
+        <link rel="stylesheet" href="../../Styles/bootstrap-3.3.5/css/bootstrap.css" media="screen" />
+        <link rel="stylesheet" href="../../Styles/bootstrap-3.3.5/css/bootstrap-theme.min.css" media="screen" />
+        <link rel="stylesheet" href="../../Styles/bootstrap-3.3.5/css/bootstrap.min.css" media="screen" />
+        
+        <!-- Bootstrap Script -->     
+        <script type="text/javascript" src="../../Styles/bootstrap-3.3.5/js/bootstrap.js"></script>
+        <script type="text/javascript" src="../../Styles/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+
+        <style type="text/css"></style>
+        <script type="text/javascript"></script>
     </head>
     <body>
         <form id="form1" runat="server">

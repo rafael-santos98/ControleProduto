@@ -125,7 +125,7 @@ namespace ControleProduto.Pages.SG
         {
             try
             {
-                Response.Redirect("../../Default.aspx");
+                Response.Redirect("../../frmInicial.aspx");
             }
             catch (Exception ex)
             {

@@ -12,6 +12,8 @@ namespace ControleProduto.Pages.Cadastro
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            CarregaAcesso();
+
             if (!Page.IsPostBack)
             {
                 if (Request.QueryString["CodigoProduto"] != null)
@@ -24,6 +26,55 @@ namespace ControleProduto.Pages.Cadastro
                 {
                     CarregaPerfil_Inclusao();
                 }
+            }
+        }
+
+        private void CarregaAcesso()
+        {
+            try
+            {
+                //Usuário não logado
+                if (Session["sUsuario"] == null)
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Acesso negado'); window.location.href='../../frmInicial.aspx';", true);
+                    return;
+                }
+
+                if (!CarregaAcessoPagina(Session["sUsuario"].ToString(), 1, 0)) //Usuário sem permissão
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Acesso negado'); window.location.href='../../frmInicial.aspx';", true);
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Erro ao Carregar Permissão de Acesso!');", true);
+                String Error = ex.Message.ToString();
+            }
+        }
+
+        private Boolean CarregaAcessoPagina(string cnmUsuario, int ncdFuncionalidade, int ncdSubFuncionalidade)
+        {
+            try
+            {
+                Misc.oConexao oConn = new Misc.oConexao();
+                SF_AP.oUsuario oMetodo = new SF_AP.oUsuario();
+                DataTable dt = new DataTable();
+
+                dt = oMetodo.CarregaUsuarioAcessoPagina(cnmUsuario, ncdFuncionalidade, ncdSubFuncionalidade, oConn.getConnection());
+
+                if (dt != null)
+                {
+                    if (Convert.ToBoolean(dt.Rows[0]["RETORNO"])) return true;
+                    else return false;
+                }
+
+                return false;
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
 
