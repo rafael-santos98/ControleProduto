@@ -17,7 +17,7 @@ USE Produto;
 	SISTEMA DE CONTROLE DE ESTOQUE
 */
 -- ==========================================================================================
-
+ 
 CREATE TABLE TBPRODUTO
 (
 	NCDPRODUTO 							INT 			NOT NULL AUTO_INCREMENT PRIMARY KEY,
