@@ -179,6 +179,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\ControleProduto.dll.config" />
+    <None Include="Properties\PublishProfiles\Padrão.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
