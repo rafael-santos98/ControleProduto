@@ -95,8 +95,10 @@ namespace ControleProduto
                 return false;
             }
             catch (Exception ex)
-            {
-                throw ex;
+            {   
+                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Erro ao tentar conectar ao banco de dados!');", true);
+                String Error = ex.Message.ToString();
+                return false;
             }
         }
 
@@ -155,7 +157,8 @@ namespace ControleProduto
             }
             catch (Exception ex)
             {
-                throw ex;
+                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Erro ao conectar no banco de dados!');", true);
+                String Error = ex.Message.ToString();
             }
         }
 
@@ -180,51 +183,69 @@ namespace ControleProduto
             }
             catch (Exception ex)
             {
-                throw ex;
+                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Erro ao conectar no banco de dados!');", true);
+                String Error = ex.Message.ToString();
             }
         }
 
         protected void lnkbtnSGCadastroUsuario_Click(object sender, EventArgs e)
         {
-            //Usuário não logado
-            if (Session["sUsuario"] == null)
+            try
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Acesso negado');", true);
-                return;
+                //Usuário não logado
+                if (Session["sUsuario"] == null)
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Acesso negado');", true);
+                    return;
+                }
+
+                if (!CarregaAcessoPagina(Session["sUsuario"].ToString(), 3, 0)) //Usuário sem permissão
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Acesso negado');", true);
+                    return;
+                }
+
+                IfrmRedirect.Attributes.Add("src", "Pages/SG/frm_SG_Usuario_Carrega.aspx");
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Erro ao conectar no banco de dados!');", true);
+                String Error = ex.Message.ToString();
             }
 
-            if (!CarregaAcessoPagina(Session["sUsuario"].ToString(), 3, 0)) //Usuário sem permissão
-            {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Acesso negado');", true);
-                return;
-            }
-
-            IfrmRedirect.Attributes.Add("src", "Pages/SG/frm_SG_Usuario_Carrega.aspx");
         }
 
         protected void lnkbtnSGPermissaoUsuario_Click(object sender, EventArgs e)
         {
-            //Usuário não logado
-            if (Session["sUsuario"] == null)
+            try
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Acesso negado');", true);
-                return;
-            }
+                //Usuário não logado
+                if (Session["sUsuario"] == null)
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Acesso negado');", true);
+                    return;
+                }
 
-            //Administrador tem acesso
-            if (Session["sUsuario"].ToString() == "admin")
-            {
+                //Administrador tem acesso
+                if (Session["sUsuario"].ToString() == "admin")
+                {
+                    IfrmRedirect.Attributes.Add("src", "Pages/SG/frm_SG_UsuarioPermissao_IncluiExclui.aspx");
+                    return;
+                }
+
+                if (!CarregaAcessoPagina(Session["sUsuario"].ToString(), 4, 0)) //Usuário com permissão
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Acesso negado');", true);
+                    return;
+                }
                 IfrmRedirect.Attributes.Add("src", "Pages/SG/frm_SG_UsuarioPermissao_IncluiExclui.aspx");
-                return;
             }
-
-            if (!CarregaAcessoPagina(Session["sUsuario"].ToString(), 4, 0)) //Usuário com permissão
+            catch (Exception ex)
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Acesso negado');", true);
-                return;
-            }
-            IfrmRedirect.Attributes.Add("src", "Pages/SG/frm_SG_UsuarioPermissao_IncluiExclui.aspx");
 
+                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Erro ao conectar no banco de dados!');", true);
+                String Error = ex.Message.ToString();
+            }
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
@@ -243,7 +264,8 @@ namespace ControleProduto
             }
             catch (Exception ex)
             {
-                throw ex;
+                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Erro ao tentar efetuar Login!');", true);
+                String Error = ex.Message.ToString();
             }
         }
 
@@ -260,7 +282,8 @@ namespace ControleProduto
             }
             catch (Exception ex)
             {
-                throw ex;
+                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Erro ao tentar efetuar Logout!');", true);
+                String Error = ex.Message.ToString();
             }
         }
 

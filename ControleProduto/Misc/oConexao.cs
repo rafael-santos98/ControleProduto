@@ -9,8 +9,11 @@ namespace ControleProduto.Misc
     {
         public string getConnection()
         {
-            string strConn = string.Empty;            
-            strConn = "server=localhost;User Id=root;password=4921;database=produto;";
+            string strConn = string.Empty;           
+            
+            //strConn = "Server=localhost;User Id=root;Pwd=4921;Database=produto;";
+            strConn = "Server=mysql06.redehost.com.br;Port=41890;User Id=rafaelrsantos;Pwd=System@1;Database=ProdEstoque;";
+            
             return strConn;
         }
     }
