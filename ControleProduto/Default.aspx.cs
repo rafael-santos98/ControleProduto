@@ -53,7 +53,7 @@ namespace ControleProduto
             catch (Exception ex)
             {
 
-                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Erro ao conectar no banco de dados!');", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Erro Sub CarregaAcessoPagina!');", true);
                 String Error = ex.Message.ToString();
                 return false;
             }
@@ -66,6 +66,7 @@ namespace ControleProduto
                 Misc.oConexao oConn = new Misc.oConexao();
                 SF_AP.oUsuario oMetodo = new SF_AP.oUsuario();
                 DataTable dt = new DataTable();
+
 
                 dt = oMetodo.CarregaUsuarioAcesso(cnmUsuario, cdsSenha, oConn.getConnection());
 
@@ -94,12 +95,13 @@ namespace ControleProduto
                     }
                 }
 
+
                 return false;
             }
             catch (Exception ex)
-            {   
-                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Erro ao tentar conectar ao banco de dados!');", true);
+            {
                 String Error = ex.Message.ToString();
+                Label1.Text = Error;
                 return false;
             }
         }
@@ -143,17 +145,17 @@ namespace ControleProduto
             try
             {
                 //Usuário não logado
-                if (Session["sUsuario"] == null)
-                {
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Acesso negado');", true);
-                    return;
-                }
-                if (!CarregaAcessoPagina(Session["sUsuario"].ToString(), 1, 0)) //Usuário sem permissão
-                {
+                //if (Session["sUsuario"] == null)
+                //{
+                //    ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Acesso negado');", true);
+                //    return;
+                //}
+                //if (!CarregaAcessoPagina(Session["sUsuario"].ToString(), 1, 0)) //Usuário sem permissão
+                //{
 
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Acesso negado');", true);
-                    return;
-                }
+                //    ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Acesso negado');", true);
+                //    return;
+                //}
 
                 IfrmRedirect.Attributes.Add("src", "Pages/Cadastro/frm_Cadastro_Produto_Carrega.aspx");
             }

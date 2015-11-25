@@ -12,7 +12,7 @@ namespace ControleProduto.Pages.Cadastro
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            CarregaAcesso();
+            //CarregaAcesso();
 
             if (!Page.IsPostBack)
             {

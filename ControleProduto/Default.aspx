@@ -93,6 +93,8 @@
             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>   
 
             <div style="clear:both"><br /></div>
+                <asp:Label ID="Label1" runat="server" ForeColor="Red"></asp:Label>
+            <div style="clear:both"><br /></div>
 
             <%--           
             <nav class="navbar navbar-inverse container">
