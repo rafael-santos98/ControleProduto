@@ -50,10 +50,12 @@ namespace ControleProduto
 
                 return false;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                ScriptManager.RegisterStartupScript(this, this.GetType(), string.Empty, "alert('Erro ao conectar no banco de dados!');", true);
+                String Error = ex.Message.ToString();
+                return false;
             }
         }
 

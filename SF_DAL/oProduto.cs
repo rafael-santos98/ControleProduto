@@ -36,6 +36,8 @@ namespace SF_DAL
                 da = new MySqlDataAdapter(mysqlCmd);
                 da.Fill(dt);
 
+                conn.Close();
+
                 return dt;
             }
             catch (Exception ex)
@@ -70,6 +72,8 @@ namespace SF_DAL
 
                 da = new MySqlDataAdapter(mysqlCmd);
                 da.Fill(dt);
+
+                conn.Close();
 
                 return dt;
             }
