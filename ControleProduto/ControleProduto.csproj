@@ -71,6 +71,7 @@
     <Content Include="db\Stored Procedures\SP_SG_UsuarioAcesso_Carrega.sql" />
     <Content Include="db\Stored Procedures\SP_SG_UsuarioPermissaoAcesso_Carrega.sql" />
     <Content Include="db\Stored Procedures\SP_SG_UsuarioPermissaoAcesso_IncluiExclui.sql" />
+    <Content Include="db\Stored Procedures\SP_SG_UsuarioSenha_Atualiza.sql" />
     <Content Include="db\Stored Procedures\SP_SG_Usuario_Carrega.sql" />
     <Content Include="db\Stored Procedures\SP_SG_Usuario_IncluiAtualiza.sql" />
     <Content Include="db\Triggers\TR_Cadastro_ProdutoSaldoAtualiza.sql" />
