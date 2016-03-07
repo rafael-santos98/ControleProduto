@@ -12,10 +12,10 @@ namespace ControleProduto.Misc
         {
             string strConn = string.Empty;           
             
-            //strConn = "Server=localhost;User Id=root;Pwd=4921;Database=produto;";
+            strConn = "Server=localhost;User Id=root;Pwd=1234;Database=produto;";
             //strConn = "Server=mysql06.redehost.com.br;Port=41890;User Id=rafaelrsantos;Pwd=System@1;Database=ProdEstoque;";
             //strConn = "Server=mysql06.redehost.com.br;Port=3306;User Id=rafaelrsantos;Pwd=System@1;Database=ProdEstoque;";
-            strConn = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            //strConn = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             return strConn;
         }
     }
