@@ -13,5 +13,5 @@ namespace ControleProduto.Misc
             string cdsSenha =  oCriptografia.SHA512("admin");
             return cdsSenha;
         }
-    }
+    } 
 }
